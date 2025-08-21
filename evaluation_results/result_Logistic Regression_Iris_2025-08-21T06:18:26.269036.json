@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T06:18:26.269036",
+  "model_name": "Logistic Regression",
+  "model_type": "Traditional ML",
+  "dataset": "Iris",
+  "metrics": {
+    "accuracy": 1.0,
+    "f1_score": 1.0,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "training_time": 0.013016462326049805,
+  "model_size": 12,
+  "additional_info": {}
+}

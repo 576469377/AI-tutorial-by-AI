@@ -45,9 +45,15 @@ Thumbs.db
 # Data files (large datasets should not be committed)
 *.csv
 *.xlsx
-*.json
+data/*.json
 !**/sample_data/*.csv
 !**/sample_data/*.json
+!**/evaluation_results/*.json
+
+# Generated files that should be included for demos
+!comprehensive_model_dashboard.html
+!model_metrics_radar.html
+!cnn_models_comparison.html
 
 # Model files
 *.pkl

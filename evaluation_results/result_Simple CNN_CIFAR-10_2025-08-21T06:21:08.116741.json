@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T06:21:08.116741",
+  "model_name": "Simple CNN",
+  "model_type": "CNN",
+  "dataset": "CIFAR-10",
+  "metrics": {
+    "accuracy": 0.7650084806866677,
+    "f1_score": 0.7889353410964792,
+    "precision": 0.7648444823337625,
+    "recall": 0.7401481305056307
+  },
+  "training_time": 191.19569100205436,
+  "model_size": 250000,
+  "additional_info": {}
+}

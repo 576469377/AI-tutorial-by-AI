@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T06:18:27.414274",
+  "model_name": "Small Transformer",
+  "model_type": "Transformer",
+  "dataset": "Text Classification",
+  "metrics": {
+    "accuracy": 0.9095267143828857,
+    "f1_score": 0.8367998613295556,
+    "precision": 0.9080922048705704,
+    "recall": 0.8252309017326609
+  },
+  "training_time": 505.0250854635489,
+  "model_size": 12000000,
+  "additional_info": {}
+}
