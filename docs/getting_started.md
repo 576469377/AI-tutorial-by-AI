@@ -56,24 +56,34 @@ python examples/03_ml_examples.py
 
 # Explore neural networks
 python examples/04_neural_network_examples.py
+
+# Deep dive into PyTorch
+python examples/05_pytorch_examples.py
 ```
 
 ## Learning Path
 
-### For Beginners
-1. **Start Here**: Read [tutorials/01_basics/README.md](tutorials/01_basics/README.md)
-2. **Run**: `python examples/01_numpy_pandas_basics.py`
-3. **Next**: Work through the Jupyter notebook step by step
+### For Complete Beginners
+1. **Start Here**: Read [tutorials/00_ai_fundamentals/README.md](tutorials/00_ai_fundamentals/README.md)
+2. **Foundation**: Read [tutorials/01_basics/README.md](tutorials/01_basics/README.md)
+3. **Run**: `python examples/01_numpy_pandas_basics.py`
+4. **Next**: Work through the Jupyter notebook step by step
 
 ### For Intermediate Learners
 1. Jump to [tutorials/03_machine_learning/README.md](tutorials/03_machine_learning/README.md)
-2. Run the machine learning examples
-3. Experiment with different algorithms
+2. Run the machine learning examples: `python examples/03_ml_examples.py`
+3. Explore neural networks: [tutorials/04_neural_networks/README.md](tutorials/04_neural_networks/README.md)
+4. Experiment with different algorithms
 
 ### For Advanced Learners
-1. Study the neural network implementation
-2. Modify the code to try different architectures
-3. Apply the concepts to your own datasets
+1. Study PyTorch: [tutorials/05_pytorch/README.md](tutorials/05_pytorch/README.md)
+2. Run deep learning examples: `python examples/05_pytorch_examples.py`
+3. Modify the code to try different architectures
+4. Apply the concepts to your own datasets
+
+### Cross-Platform Setup
+For detailed setup instructions specific to your operating system:
+- [📋 Cross-Platform Setup Guide](setup/cross_platform_setup.md)
 
 ## Troubleshooting
 
