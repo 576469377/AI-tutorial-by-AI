@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T07:05:01.209699",
+  "model_name": "MLP",
+  "model_type": "Traditional ML",
+  "dataset": "Iris",
+  "metrics": {
+    "accuracy": 1.0,
+    "f1_score": 1.0,
+    "precision": 1.0,
+    "recall": 1.0
+  },
+  "training_time": 0.14325261116027832,
+  "model_size": 1790,
+  "additional_info": {}
+}

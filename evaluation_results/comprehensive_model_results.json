@@ -165,6 +165,36 @@
     "additional_info": {}
   },
   {
+    "timestamp": "2025-08-21T06:53:19.212410",
+    "model_name": "Simple RNN",
+    "model_type": "RNN",
+    "dataset": "Text Sentiment",
+    "metrics": {
+      "accuracy": 0.7462619818060855,
+      "f1_score": 0.7017531466787872,
+      "precision": 0.7944024744375395,
+      "recall": 0.6765839892764444
+    },
+    "training_time": 178.86789464299227,
+    "model_size": 100000,
+    "additional_info": {}
+  },
+  {
+    "timestamp": "2025-08-21T06:53:18.333853",
+    "model_name": "MLP",
+    "model_type": "Traditional ML",
+    "dataset": "Iris",
+    "metrics": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "training_time": 0.14295506477355957,
+    "model_size": 1790,
+    "additional_info": {}
+  },
+  {
     "timestamp": "2025-08-21T06:21:08.117147",
     "model_name": "Simple RNN",
     "model_type": "RNN",
@@ -195,6 +225,21 @@
     "additional_info": {}
   },
   {
+    "timestamp": "2025-08-21T06:53:18.350919",
+    "model_name": "Logistic Regression (Complex)",
+    "model_type": "Traditional ML",
+    "dataset": "Synthetic Classification",
+    "metrics": {
+      "accuracy": 0.6833333333333333,
+      "f1_score": 0.6846246788413971,
+      "precision": 0.689631434169642,
+      "recall": 0.6833333333333333
+    },
+    "training_time": 0.010249853134155273,
+    "model_size": 60,
+    "additional_info": {}
+  },
+  {
     "timestamp": "2025-08-21T06:18:49.565994",
     "model_name": "LSTM",
     "model_type": "RNN",
@@ -207,6 +252,21 @@
     },
     "training_time": 295.64572663167144,
     "model_size": 500000,
+    "additional_info": {}
+  },
+  {
+    "timestamp": "2025-08-21T06:53:19.212285",
+    "model_name": "EfficientNet-B0",
+    "model_type": "CNN",
+    "dataset": "CIFAR-10",
+    "metrics": {
+      "accuracy": 0.9568992053791389,
+      "f1_score": 0.9507503789164737,
+      "precision": 0.9669069731970579,
+      "recall": 0.9441361181683136
+    },
+    "training_time": 446.5036956644125,
+    "model_size": 5300000,
     "additional_info": {}
   },
   {
@@ -285,6 +345,21 @@
     "additional_info": {}
   },
   {
+    "timestamp": "2025-08-21T06:53:19.212774",
+    "model_name": "Small Transformer",
+    "model_type": "Transformer",
+    "dataset": "Text Classification",
+    "metrics": {
+      "accuracy": 0.9053201005693305,
+      "f1_score": 0.8680451637331317,
+      "precision": 0.9483182564588092,
+      "recall": 0.8190489810338872
+    },
+    "training_time": 515.3775422352112,
+    "model_size": 12000000,
+    "additional_info": {}
+  },
+  {
     "timestamp": "2025-08-21T06:21:07.108874",
     "model_name": "Random Forest",
     "model_type": "Traditional ML",
@@ -297,6 +372,21 @@
     },
     "training_time": 0.11562085151672363,
     "model_size": 400,
+    "additional_info": {}
+  },
+  {
+    "timestamp": "2025-08-21T06:53:18.652075",
+    "model_name": "Random Forest (Complex)",
+    "model_type": "Traditional ML",
+    "dataset": "Synthetic Classification",
+    "metrics": {
+      "accuracy": 0.77,
+      "f1_score": 0.7708291490246537,
+      "precision": 0.7743524150268337,
+      "recall": 0.77
+    },
+    "training_time": 0.28354549407958984,
+    "model_size": 2000,
     "additional_info": {}
   },
   {
@@ -375,6 +465,21 @@
     "additional_info": {}
   },
   {
+    "timestamp": "2025-08-21T06:53:19.212531",
+    "model_name": "LSTM",
+    "model_type": "RNN",
+    "dataset": "Text Sentiment",
+    "metrics": {
+      "accuracy": 0.8521333098497713,
+      "f1_score": 0.8271267600805993,
+      "precision": 0.8231987874441942,
+      "recall": 0.8009785564115042
+    },
+    "training_time": 259.58670141240214,
+    "model_size": 500000,
+    "additional_info": {}
+  },
+  {
     "timestamp": "2025-08-21T06:18:48.716793",
     "model_name": "Logistic Regression (Complex)",
     "model_type": "Traditional ML",
@@ -417,6 +522,21 @@
     },
     "training_time": 0.27782273292541504,
     "model_size": 2000,
+    "additional_info": {}
+  },
+  {
+    "timestamp": "2025-08-21T06:53:19.212651",
+    "model_name": "BiLSTM",
+    "model_type": "RNN",
+    "dataset": "Text Sentiment",
+    "metrics": {
+      "accuracy": 0.8750683117779525,
+      "f1_score": 0.8793074814082941,
+      "precision": 0.8604811782984656,
+      "recall": 0.842539108383006
+    },
+    "training_time": 366.00945488880876,
+    "model_size": 800000,
     "additional_info": {}
   },
   {
@@ -510,6 +630,21 @@
     "additional_info": {}
   },
   {
+    "timestamp": "2025-08-21T06:53:19.212071",
+    "model_name": "ResNet-50",
+    "model_type": "CNN",
+    "dataset": "CIFAR-10",
+    "metrics": {
+      "accuracy": 0.9361896600806868,
+      "f1_score": 0.9324504478865864,
+      "precision": 0.941618634086358,
+      "recall": 0.908118634866898
+    },
+    "training_time": 633.6639828597015,
+    "model_size": 25000000,
+    "additional_info": {}
+  },
+  {
     "timestamp": "2025-08-21T06:21:08.116741",
     "model_name": "Simple CNN",
     "model_type": "CNN",
@@ -522,6 +657,51 @@
     },
     "training_time": 191.19569100205436,
     "model_size": 250000,
+    "additional_info": {}
+  },
+  {
+    "timestamp": "2025-08-21T06:53:18.057205",
+    "model_name": "Logistic Regression",
+    "model_type": "Traditional ML",
+    "dataset": "Iris",
+    "metrics": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "training_time": 0.012950658798217773,
+    "model_size": 12,
+    "additional_info": {}
+  },
+  {
+    "timestamp": "2025-08-21T06:53:19.213017",
+    "model_name": "DistilBERT",
+    "model_type": "Transformer",
+    "dataset": "Text Classification",
+    "metrics": {
+      "accuracy": 0.9215199311592086,
+      "f1_score": 0.8973541337072365,
+      "precision": 0.9094853874729669,
+      "recall": 0.8918066962527647
+    },
+    "training_time": 541.3829439265995,
+    "model_size": 66000000,
+    "additional_info": {}
+  },
+  {
+    "timestamp": "2025-08-21T06:53:19.211486",
+    "model_name": "MLP (Complex)",
+    "model_type": "Traditional ML",
+    "dataset": "Synthetic Classification",
+    "metrics": {
+      "accuracy": 0.84,
+      "f1_score": 0.8404687013746044,
+      "precision": 0.8422775761973876,
+      "recall": 0.84
+    },
+    "training_time": 0.5547935962677002,
+    "model_size": 2590,
     "additional_info": {}
   },
   {
@@ -555,6 +735,21 @@
     "additional_info": {}
   },
   {
+    "timestamp": "2025-08-21T06:53:19.211914",
+    "model_name": "Simple CNN",
+    "model_type": "CNN",
+    "dataset": "CIFAR-10",
+    "metrics": {
+      "accuracy": 0.7522007834822125,
+      "f1_score": 0.7310964997850884,
+      "precision": 0.7520599786456666,
+      "recall": 0.717481327966577
+    },
+    "training_time": 180.41434334615457,
+    "model_size": 250000,
+    "additional_info": {}
+  },
+  {
     "timestamp": "2025-08-21T06:18:48.551260",
     "model_name": "Random Forest",
     "model_type": "Traditional ML",
@@ -582,6 +777,21 @@
     },
     "training_time": 321.1983068297623,
     "model_size": 800000,
+    "additional_info": {}
+  },
+  {
+    "timestamp": "2025-08-21T06:53:19.212896",
+    "model_name": "BERT-Base",
+    "model_type": "Transformer",
+    "dataset": "Text Classification",
+    "metrics": {
+      "accuracy": 0.9276497204162517,
+      "f1_score": 0.9290012659452838,
+      "precision": 0.9317805159241687,
+      "recall": 0.8866838539917091
+    },
+    "training_time": 1064.4634030386815,
+    "model_size": 110000000,
     "additional_info": {}
   },
   {
@@ -630,6 +840,21 @@
     "additional_info": {}
   },
   {
+    "timestamp": "2025-08-21T06:53:18.186697",
+    "model_name": "Random Forest",
+    "model_type": "Traditional ML",
+    "dataset": "Iris",
+    "metrics": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "training_time": 0.11458539962768555,
+    "model_size": 400,
+    "additional_info": {}
+  },
+  {
     "timestamp": "2025-08-21T06:21:07.567043",
     "model_name": "Random Forest (Complex)",
     "model_type": "Traditional ML",
@@ -675,7 +900,7 @@
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:18.057205",
+    "timestamp": "2025-08-21T07:05:00.931402",
     "model_name": "Logistic Regression",
     "model_type": "Traditional ML",
     "dataset": "Iris",
@@ -685,12 +910,12 @@
       "precision": 1.0,
       "recall": 1.0
     },
-    "training_time": 0.012950658798217773,
+    "training_time": 0.013205289840698242,
     "model_size": 12,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:18.186697",
+    "timestamp": "2025-08-21T07:05:01.062009",
     "model_name": "Random Forest",
     "model_type": "Traditional ML",
     "dataset": "Iris",
@@ -700,12 +925,12 @@
       "precision": 1.0,
       "recall": 1.0
     },
-    "training_time": 0.11458539962768555,
+    "training_time": 0.1158452033996582,
     "model_size": 400,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:18.333853",
+    "timestamp": "2025-08-21T07:05:01.209699",
     "model_name": "MLP",
     "model_type": "Traditional ML",
     "dataset": "Iris",
@@ -715,12 +940,12 @@
       "precision": 1.0,
       "recall": 1.0
     },
-    "training_time": 0.14295506477355957,
+    "training_time": 0.14325261116027832,
     "model_size": 1790,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:18.350919",
+    "timestamp": "2025-08-21T07:05:01.227219",
     "model_name": "Logistic Regression (Complex)",
     "model_type": "Traditional ML",
     "dataset": "Synthetic Classification",
@@ -730,12 +955,12 @@
       "precision": 0.689631434169642,
       "recall": 0.6833333333333333
     },
-    "training_time": 0.010249853134155273,
+    "training_time": 0.010466814041137695,
     "model_size": 60,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:18.652075",
+    "timestamp": "2025-08-21T07:05:01.523519",
     "model_name": "Random Forest (Complex)",
     "model_type": "Traditional ML",
     "dataset": "Synthetic Classification",
@@ -745,12 +970,12 @@
       "precision": 0.7743524150268337,
       "recall": 0.77
     },
-    "training_time": 0.28354549407958984,
+    "training_time": 0.2788264751434326,
     "model_size": 2000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.211486",
+    "timestamp": "2025-08-21T07:05:02.075362",
     "model_name": "MLP (Complex)",
     "model_type": "Traditional ML",
     "dataset": "Synthetic Classification",
@@ -760,142 +985,142 @@
       "precision": 0.8422775761973876,
       "recall": 0.84
     },
-    "training_time": 0.5547935962677002,
+    "training_time": 0.5473387241363525,
     "model_size": 2590,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.211914",
+    "timestamp": "2025-08-21T07:05:02.075799",
     "model_name": "Simple CNN",
     "model_type": "CNN",
     "dataset": "CIFAR-10",
     "metrics": {
-      "accuracy": 0.7522007834822125,
-      "f1_score": 0.7310964997850884,
-      "precision": 0.7520599786456666,
-      "recall": 0.717481327966577
+      "accuracy": 0.7699043339962034,
+      "f1_score": 0.7604292505616865,
+      "precision": 0.7311051281557986,
+      "recall": 0.7402040845077349
     },
-    "training_time": 180.41434334615457,
+    "training_time": 194.26373042030662,
     "model_size": 250000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.212071",
+    "timestamp": "2025-08-21T07:05:02.075952",
     "model_name": "ResNet-50",
     "model_type": "CNN",
     "dataset": "CIFAR-10",
     "metrics": {
-      "accuracy": 0.9361896600806868,
-      "f1_score": 0.9324504478865864,
-      "precision": 0.941618634086358,
-      "recall": 0.908118634866898
+      "accuracy": 0.9191076867275778,
+      "f1_score": 0.9252430830010175,
+      "precision": 0.9388332462709528,
+      "recall": 0.9122725101012142
     },
-    "training_time": 633.6639828597015,
+    "training_time": 657.5193430106132,
     "model_size": 25000000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.212285",
+    "timestamp": "2025-08-21T07:05:02.076079",
     "model_name": "EfficientNet-B0",
     "model_type": "CNN",
     "dataset": "CIFAR-10",
     "metrics": {
-      "accuracy": 0.9568992053791389,
-      "f1_score": 0.9507503789164737,
-      "precision": 0.9669069731970579,
-      "recall": 0.9441361181683136
+      "accuracy": 0.9603169924214202,
+      "f1_score": 0.9590351000761587,
+      "precision": 0.961943055996605,
+      "recall": 0.9401030174735412
     },
-    "training_time": 446.5036956644125,
+    "training_time": 374.00435849364914,
     "model_size": 5300000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.212410",
+    "timestamp": "2025-08-21T07:05:02.076226",
     "model_name": "Simple RNN",
     "model_type": "RNN",
     "dataset": "Text Sentiment",
     "metrics": {
-      "accuracy": 0.7462619818060855,
-      "f1_score": 0.7017531466787872,
-      "precision": 0.7944024744375395,
-      "recall": 0.6765839892764444
+      "accuracy": 0.6992297975709932,
+      "f1_score": 0.7166964363699714,
+      "precision": 0.7512771527190222,
+      "recall": 0.6867225499832008
     },
-    "training_time": 178.86789464299227,
+    "training_time": 157.90704886950425,
     "model_size": 100000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.212531",
+    "timestamp": "2025-08-21T07:05:02.076356",
     "model_name": "LSTM",
     "model_type": "RNN",
     "dataset": "Text Sentiment",
     "metrics": {
-      "accuracy": 0.8521333098497713,
-      "f1_score": 0.8271267600805993,
-      "precision": 0.8231987874441942,
-      "recall": 0.8009785564115042
+      "accuracy": 0.8442346960948783,
+      "f1_score": 0.8371744649945317,
+      "precision": 0.8740787759244902,
+      "recall": 0.8216702571995315
     },
-    "training_time": 259.58670141240214,
+    "training_time": 262.40136091655665,
     "model_size": 500000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.212651",
+    "timestamp": "2025-08-21T07:05:02.076482",
     "model_name": "BiLSTM",
     "model_type": "RNN",
     "dataset": "Text Sentiment",
     "metrics": {
-      "accuracy": 0.8750683117779525,
-      "f1_score": 0.8793074814082941,
-      "precision": 0.8604811782984656,
-      "recall": 0.842539108383006
+      "accuracy": 0.8767010921748314,
+      "f1_score": 0.8719812616873438,
+      "precision": 0.8939226126509426,
+      "recall": 0.8508566948830532
     },
-    "training_time": 366.00945488880876,
+    "training_time": 315.9322235162833,
     "model_size": 800000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.212774",
+    "timestamp": "2025-08-21T07:05:02.076604",
     "model_name": "Small Transformer",
     "model_type": "Transformer",
     "dataset": "Text Classification",
     "metrics": {
-      "accuracy": 0.9053201005693305,
-      "f1_score": 0.8680451637331317,
-      "precision": 0.9483182564588092,
-      "recall": 0.8190489810338872
+      "accuracy": 0.8381785102155825,
+      "f1_score": 0.875067120643193,
+      "precision": 0.901193914863188,
+      "recall": 0.8745930477048192
     },
-    "training_time": 515.3775422352112,
+    "training_time": 467.4143452497257,
     "model_size": 12000000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.212896",
+    "timestamp": "2025-08-21T07:05:02.076732",
     "model_name": "BERT-Base",
     "model_type": "Transformer",
     "dataset": "Text Classification",
     "metrics": {
-      "accuracy": 0.9276497204162517,
-      "f1_score": 0.9290012659452838,
-      "precision": 0.9317805159241687,
-      "recall": 0.8866838539917091
+      "accuracy": 0.9344354836743717,
+      "f1_score": 0.9108143710830567,
+      "precision": 0.9222857088389915,
+      "recall": 0.911180338457931
     },
-    "training_time": 1064.4634030386815,
+    "training_time": 935.6253681007602,
     "model_size": 110000000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-21T06:53:19.213017",
+    "timestamp": "2025-08-21T07:05:02.076854",
     "model_name": "DistilBERT",
     "model_type": "Transformer",
     "dataset": "Text Classification",
     "metrics": {
-      "accuracy": 0.9215199311592086,
-      "f1_score": 0.8973541337072365,
-      "precision": 0.9094853874729669,
-      "recall": 0.8918066962527647
+      "accuracy": 0.9040748248322199,
+      "f1_score": 0.8832533581640535,
+      "precision": 0.9445606090022693,
+      "recall": 0.8887835497222181
     },
-    "training_time": 541.3829439265995,
+    "training_time": 463.70749510998667,
     "model_size": 66000000,
     "additional_info": {}
   }

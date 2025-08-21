@@ -1,0 +1,33 @@
+{
+  "model_info": {
+    "model_type": "RandomForestClassifier",
+    "is_classifier": true,
+    "n_features": 4,
+    "n_samples": 45,
+    "feature_names": [
+      "sepal length (cm)",
+      "sepal width (cm)",
+      "petal length (cm)",
+      "petal width (cm)"
+    ]
+  },
+  "timestamp": "2025-08-21T07:01:42.726956",
+  "feature_importance": {
+    "permutation": {
+      "petal width (cm)": 0.1888888888888889,
+      "petal length (cm)": 0.13999999999999999,
+      "sepal width (cm)": 0.0,
+      "sepal length (cm)": 0.0
+    },
+    "builtin": {
+      "petal width (cm)": 0.43453481998097926,
+      "petal length (cm)": 0.4176511253652989,
+      "sepal length (cm)": 0.10369242590505658,
+      "sepal width (cm)": 0.04412162874866526
+    }
+  },
+  "performance": {
+    "accuracy": 1.0,
+    "prediction_method": "classification"
+  }
+}
