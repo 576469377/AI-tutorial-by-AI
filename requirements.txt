@@ -13,6 +13,12 @@ torch>=2.0.0
 torchvision>=0.15.0
 torchaudio>=2.0.0
 
+# Large Language Models and NLP
+transformers>=4.21.0
+tokenizers>=0.13.0
+datasets>=2.0.0
+accelerate>=0.20.0
+
 # Jupyter for interactive tutorials
 jupyter>=1.0.0
 jupyterlab>=3.0.0
