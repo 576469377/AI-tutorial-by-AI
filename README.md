@@ -10,7 +10,8 @@ This tutorial series covers everything you need to train your own LLM with pract
 
 ### 🗺️ Learning Paths Available
 
-**📚 [Complete Learning Path Guide](docs/learning_paths.md)** - Choose your AI journey!
+**📚 [Complete Learning Path Guide](docs/learning_paths.md)** - Choose your AI journey!  
+**⚡ [Quick Start for Experienced Developers](docs/quick_start.md)** - Fast-track pathway!
 
 - **🏁 Foundation Track** (Required): AI concepts, Python, and data visualization
 - **📊 Machine Learning Track**: Traditional ML algorithms and business applications  
@@ -137,6 +138,25 @@ The tutorials are organized into progressive learning tracks. **[📚 See Comple
 | **AI Engineering** | Foundation → Deep Learning → Advanced | 12-16 weeks |
 | **AI Research** | Foundation → ML + Deep Learning → Advanced | 16-20 weeks |
 | **Business Applications** | Foundation → ML Track | 6-8 weeks |
+
+### 🎯 Self-Assessment: Are You Ready to Skip Ahead?
+
+**Skip Foundation Track** if you can:
+- [ ] Manipulate data with NumPy and Pandas fluently
+- [ ] Create visualizations with matplotlib/seaborn
+- [ ] Understand basic statistics and linear algebra
+
+**Skip to Deep Learning** if you also can:
+- [ ] Implement basic ML algorithms (regression, classification)
+- [ ] Evaluate model performance with cross-validation
+- [ ] Handle feature engineering and data preprocessing
+
+**Skip to Advanced AI** if you also can:
+- [ ] Build and train neural networks with PyTorch
+- [ ] Understand backpropagation and gradient descent
+- [ ] Work with tensors and GPU acceleration
+
+**[⚡ See Quick Start Guide](docs/quick_start.md)** for experienced developers
 
 ### 💻 Examples
 - **[examples/](examples/)** - Standalone Python scripts demonstrating key concepts
