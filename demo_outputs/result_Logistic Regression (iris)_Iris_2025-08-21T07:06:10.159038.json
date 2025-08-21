@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-21T07:06:10.159038",
+  "model_name": "Logistic Regression (iris)",
+  "model_type": "Logistic Regression",
+  "dataset": "Iris",
+  "metrics": {
+    "accuracy": 1.0,
+    "train_accuracy": 0.9619047619047619,
+    "overfitting": -0.03809523809523807
+  },
+  "training_time": 0.0033190250396728516,
+  "model_size": 1,
+  "additional_info": {}
+}

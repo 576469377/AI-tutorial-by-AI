@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-21T07:02:43.952937",
+  "model_name": "Random Forest (synthetic)",
+  "model_type": "Random Forest",
+  "dataset": "Synthetic",
+  "metrics": {
+    "accuracy": 0.8516666666666667,
+    "train_accuracy": 1.0,
+    "overfitting": 0.14833333333333332
+  },
+  "training_time": 0.374722957611084,
+  "model_size": 100,
+  "additional_info": {}
+}

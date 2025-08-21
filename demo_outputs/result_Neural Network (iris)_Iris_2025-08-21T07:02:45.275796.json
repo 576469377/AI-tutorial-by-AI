@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-21T07:02:45.275796",
+  "model_name": "Neural Network (iris)",
+  "model_type": "Neural Network",
+  "dataset": "Iris",
+  "metrics": {
+    "accuracy": 1.0,
+    "train_accuracy": 0.9619047619047619,
+    "overfitting": -0.03809523809523807
+  },
+  "training_time": 0.1560816764831543,
+  "model_size": 350,
+  "additional_info": {}
+}

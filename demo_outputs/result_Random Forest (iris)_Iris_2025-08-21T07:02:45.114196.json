@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-21T07:02:45.114196",
+  "model_name": "Random Forest (iris)",
+  "model_type": "Random Forest",
+  "dataset": "Iris",
+  "metrics": {
+    "accuracy": 1.0,
+    "train_accuracy": 1.0,
+    "overfitting": 0.0
+  },
+  "training_time": 0.11575436592102051,
+  "model_size": 100,
+  "additional_info": {}
+}

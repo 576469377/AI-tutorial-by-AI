@@ -25,3 +25,10 @@ jupyterlab>=3.0.0
 
 # Additional utilities
 scipy>=1.7.0
+
+# Optional: Enhanced interpretability features (uncomment to enable)
+# shap>=0.41.0
+# lime>=0.2.0
+
+# Optional: Advanced hyperparameter optimization (uncomment to enable)
+# scikit-optimize>=0.9.0
