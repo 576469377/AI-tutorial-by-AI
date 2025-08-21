@@ -119,7 +119,17 @@ def main():
         if run_command(command, description):
             tests_passed += 1
     
-    # Test 6: Check generated files
+    # Test 6: Test new model evaluation demo
+    total_tests += 1
+    if run_command("python examples/07_model_evaluation_demo.py", "Model evaluation dashboard demo"):
+        tests_passed += 1
+    
+    # Test 7: Test advanced AI demos
+    total_tests += 1
+    if run_command("python examples/08_advanced_ai_demos.py", "Advanced AI demos"):
+        tests_passed += 1
+    
+    # Test 8: Check generated files
     total_tests += 1
     generated_files = [
         "sample_data/classification_sample.csv",
@@ -131,12 +141,21 @@ def main():
         "neural_network_results.png",
         "pytorch_classification_results.png",
         "cnn_filters.png",
-        "optimization_comparison.png"
+        "optimization_comparison.png",
+        "comprehensive_model_dashboard.html",
+        "model_metrics_radar.html"
     ]
-    if check_files_exist(generated_files, "Generated output files"):
+    # Check some files exist (optional files may not be generated in CI)
+    essential_files = [f for f in generated_files if not f.endswith('.html')]
+    if check_files_exist(essential_files, "Generated output files"):
         tests_passed += 1
     
-    # Test 7: Jupyter notebook validation
+    # Test 9: Check utility module
+    total_tests += 1
+    if run_command("python -c \"from utils.model_evaluation import ModelEvaluationDashboard; print('Utils module working')\"", "Utility module import"):
+        tests_passed += 1
+    
+    # Test 10: Jupyter notebook validation
     total_tests += 1
     if run_command("jupyter --version", "Jupyter installation"):
         tests_passed += 1
