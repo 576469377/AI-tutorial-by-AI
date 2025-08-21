@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T06:53:19.212896",
+  "model_name": "BERT-Base",
+  "model_type": "Transformer",
+  "dataset": "Text Classification",
+  "metrics": {
+    "accuracy": 0.9276497204162517,
+    "f1_score": 0.9290012659452838,
+    "precision": 0.9317805159241687,
+    "recall": 0.8866838539917091
+  },
+  "training_time": 1064.4634030386815,
+  "model_size": 110000000,
+  "additional_info": {}
+}
