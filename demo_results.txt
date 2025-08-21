@@ -1,0 +1,15 @@
+AI Tutorial Results
+==================================================
+
+Logistic Regression:
+  Accuracy: 0.880
+  Precision: 0.880
+  Recall: 0.880
+  F1-Score: 0.880
+
+Random Forest:
+  Accuracy: 0.960
+  Precision: 0.961
+  Recall: 0.960
+  F1-Score: 0.960
+
