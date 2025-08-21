@@ -19,12 +19,21 @@ tokenizers>=0.13.0
 datasets>=2.0.0
 accelerate>=0.20.0
 
+# Multimodal AI support (NEW)
+Pillow>=8.0.0
+opencv-python>=4.5.0
+timm>=0.6.0
+
 # Jupyter for interactive tutorials
 jupyter>=1.0.0
 jupyterlab>=3.0.0
 
 # Additional utilities
 scipy>=1.7.0
+nltk>=3.7.0
+
+# Multimodal evaluation (NEW)
+# torchmetrics>=0.9.0
 
 # Optional: Enhanced interpretability features (uncomment to enable)
 # shap>=0.41.0

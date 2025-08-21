@@ -625,12 +625,350 @@ def main():
     print("\n8. Fine-tuning example with Transformers library...")
     fine_tune_with_transformers()
     
+    # Demonstrate multimodal capabilities
+    print("\n9. Multimodal AI examples...")
+    multimodal_examples()
+    
     print("\n🎉 LLM training examples completed!")
     print("\nNext steps:")
     print("- Try training on larger datasets")
     print("- Experiment with different model architectures")
     print("- Use pre-trained models for better results")
     print("- Implement more advanced techniques like PEFT")
+    print("- Explore multimodal applications like image captioning")
+
+
+def multimodal_examples():
+    """Demonstrate multimodal AI capabilities"""
+    print("🎨 Multimodal AI Examples")
+    print("=" * 40)
+    
+    # Example 1: CLIP-based image-text similarity
+    try:
+        from transformers import CLIPProcessor, CLIPModel
+        from PIL import Image
+        import requests
+        import numpy as np
+        
+        print("\n1. CLIP Image-Text Similarity Demo")
+        print("-" * 35)
+        
+        # Load CLIP model and processor
+        model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+        processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+        
+        # Sample image URL (a cat)
+        url = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/640px-Cat_November_2010-1a.jpg"
+        
+        try:
+            image = Image.open(requests.get(url, stream=True).raw)
+            
+            # Text descriptions to compare
+            text_descriptions = [
+                "a cat sitting on a surface",
+                "a dog playing in the park", 
+                "a beautiful landscape",
+                "a fluffy orange cat",
+                "a bird flying in the sky"
+            ]
+            
+            # Process inputs
+            inputs = processor(
+                text=text_descriptions, 
+                images=image, 
+                return_tensors="pt", 
+                padding=True
+            )
+            
+            # Get similarities
+            outputs = model(**inputs)
+            logits_per_image = outputs.logits_per_image
+            probs = logits_per_image.softmax(dim=1)
+            
+            print("Image-Text Similarity Scores:")
+            for i, desc in enumerate(text_descriptions):
+                score = probs[0][i].item()
+                print(f"  '{desc}': {score:.3f}")
+                
+        except Exception as e:
+            print(f"Could not load image: {e}")
+            print("Simulating image-text similarity scores...")
+            for i, desc in enumerate(text_descriptions):
+                # Simulate higher scores for cat-related descriptions
+                if "cat" in desc.lower():
+                    score = np.random.uniform(0.6, 0.9)
+                else:
+                    score = np.random.uniform(0.1, 0.4)
+                print(f"  '{desc}': {score:.3f}")
+                    
+    except ImportError:
+        print("CLIP model not available. Install transformers library.")
+    except Exception as e:
+        print(f"CLIP demo error: {e}")
+    
+    # Example 2: Simple Vision-Language Model Architecture
+    print("\n2. Vision-Language Model Architecture")
+    print("-" * 40)
+    
+    class SimpleVisionLanguageModel(nn.Module):
+        """Simplified vision-language model for demonstration"""
+        
+        def __init__(self, vocab_size, d_model=512):
+            super().__init__()
+            
+            # Vision encoder (simplified)
+            self.vision_encoder = nn.Sequential(
+                nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3),
+                nn.ReLU(),
+                nn.AdaptiveAvgPool2d((8, 8)),
+                nn.Flatten(),
+                nn.Linear(64 * 8 * 8, d_model)
+            )
+            
+            # Text encoder
+            self.text_encoder = nn.Sequential(
+                nn.Embedding(vocab_size, d_model),
+                nn.LSTM(d_model, d_model, batch_first=True),
+            )
+            
+            # Fusion layer
+            self.fusion = nn.MultiheadAttention(d_model, num_heads=8)
+            
+            # Output projections
+            self.image_projection = nn.Linear(d_model, d_model)
+            self.text_projection = nn.Linear(d_model, d_model)
+            
+        def forward(self, image, text):
+            # Encode image and text
+            image_features = self.vision_encoder(image)  # [batch, d_model]
+            text_features, _ = self.text_encoder(text)   # [batch, seq_len, d_model]
+            
+            # Cross-modal attention
+            image_features = image_features.unsqueeze(1)  # [batch, 1, d_model]
+            fused_features, _ = self.fusion(
+                image_features, text_features, text_features
+            )
+            
+            # Project to common space
+            image_proj = self.image_projection(fused_features.squeeze(1))
+            text_proj = self.text_projection(text_features.mean(dim=1))
+            
+            return image_proj, text_proj
+    
+    # Create and demonstrate the model
+    vocab_size = 10000
+    vl_model = SimpleVisionLanguageModel(vocab_size)
+    
+    # Create dummy inputs
+    batch_size = 2
+    dummy_image = torch.randn(batch_size, 3, 224, 224)
+    dummy_text = torch.randint(0, vocab_size, (batch_size, 20))
+    
+    # Forward pass
+    image_proj, text_proj = vl_model(dummy_image, dummy_text)
+    
+    print(f"Vision-Language Model created successfully!")
+    print(f"  Image projection shape: {image_proj.shape}")
+    print(f"  Text projection shape: {text_proj.shape}")
+    print(f"  Total parameters: {sum(p.numel() for p in vl_model.parameters()):,}")
+    
+    # Example 3: Image Captioning Training Setup
+    print("\n3. Image Captioning Training Setup")
+    print("-" * 38)
+    
+    class ImageCaptioningModel(nn.Module):
+        """Simple image captioning model"""
+        
+        def __init__(self, vocab_size, d_model=512, max_seq_len=50):
+            super().__init__()
+            self.d_model = d_model
+            self.max_seq_len = max_seq_len
+            
+            # Vision encoder (using ResNet-like architecture)
+            self.vision_encoder = nn.Sequential(
+                nn.Conv2d(3, 256, kernel_size=7, stride=2, padding=3),
+                nn.BatchNorm2d(256),
+                nn.ReLU(),
+                nn.AdaptiveAvgPool2d((7, 7)),
+                nn.Flatten(),
+                nn.Linear(256 * 7 * 7, d_model)
+            )
+            
+            # Caption decoder (using transformer decoder)
+            self.embedding = nn.Embedding(vocab_size, d_model)
+            self.positional_encoding = nn.Parameter(torch.randn(max_seq_len, d_model))
+            
+            decoder_layer = nn.TransformerDecoderLayer(
+                d_model=d_model, 
+                nhead=8, 
+                dim_feedforward=2048,
+                dropout=0.1
+            )
+            self.transformer_decoder = nn.TransformerDecoder(decoder_layer, num_layers=6)
+            
+            # Output projection
+            self.output_projection = nn.Linear(d_model, vocab_size)
+        
+        def forward(self, image, caption_tokens=None):
+            # Encode image
+            image_features = self.vision_encoder(image)  # [batch, d_model]
+            image_features = image_features.unsqueeze(1)  # [batch, 1, d_model]
+            
+            if caption_tokens is not None:
+                # Training mode: teacher forcing
+                seq_len = caption_tokens.size(1)
+                caption_embeds = self.embedding(caption_tokens)
+                caption_embeds += self.positional_encoding[:seq_len].unsqueeze(0)
+                
+                # Create causal mask
+                causal_mask = torch.triu(torch.ones(seq_len, seq_len), diagonal=1).bool()
+                
+                # Decode with cross-attention to image
+                output = self.transformer_decoder(
+                    caption_embeds.transpose(0, 1),  # [seq_len, batch, d_model]
+                    image_features.transpose(0, 1),  # [1, batch, d_model] 
+                    tgt_mask=causal_mask
+                )
+                
+                # Project to vocabulary
+                logits = self.output_projection(output.transpose(0, 1))
+                return logits
+            else:
+                # Inference mode: autoregressive generation
+                # This would be implemented for actual text generation
+                return image_features
+    
+    # Create captioning model
+    captioning_model = ImageCaptioningModel(vocab_size=5000)
+    total_params = sum(p.numel() for p in captioning_model.parameters())
+    
+    print(f"Image Captioning Model created!")
+    print(f"  Total parameters: {total_params:,}")
+    
+    # Test forward pass
+    dummy_image = torch.randn(2, 3, 224, 224)
+    dummy_captions = torch.randint(0, 5000, (2, 20))
+    
+    logits = captioning_model(dummy_image, dummy_captions)
+    print(f"  Output logits shape: {logits.shape}")
+    
+    # Example 4: Visual Question Answering
+    print("\n4. Visual Question Answering Setup")
+    print("-" * 36)
+    
+    class VQAModel(nn.Module):
+        """Visual Question Answering model"""
+        
+        def __init__(self, vocab_size, num_answers=1000, d_model=512):
+            super().__init__()
+            
+            # Vision encoder
+            self.vision_encoder = nn.Sequential(
+                nn.Conv2d(3, 512, kernel_size=7, stride=2, padding=3),
+                nn.BatchNorm2d(512),
+                nn.ReLU(),
+                nn.AdaptiveAvgPool2d((14, 14)),
+                nn.Flatten(),
+                nn.Linear(512 * 14 * 14, d_model)
+            )
+            
+            # Question encoder
+            self.question_encoder = nn.Sequential(
+                nn.Embedding(vocab_size, d_model),
+                nn.LSTM(d_model, d_model // 2, bidirectional=True, batch_first=True)
+            )
+            
+            # Attention mechanism
+            self.attention = nn.MultiheadAttention(d_model, num_heads=8)
+            
+            # Answer classifier
+            self.classifier = nn.Sequential(
+                nn.Linear(d_model, d_model // 2),
+                nn.ReLU(),
+                nn.Dropout(0.1),
+                nn.Linear(d_model // 2, num_answers)
+            )
+        
+        def forward(self, image, question):
+            # Encode image and question
+            image_features = self.vision_encoder(image)
+            question_features, _ = self.question_encoder(question)
+            
+            # Attention between question and image
+            question_attended, _ = self.attention(
+                question_features.mean(dim=1, keepdim=True),
+                image_features.unsqueeze(1),
+                image_features.unsqueeze(1)
+            )
+            
+            # Classify answer
+            answer_logits = self.classifier(question_attended.squeeze(1))
+            return answer_logits
+    
+    # Create VQA model
+    vqa_model = VQAModel(vocab_size=10000, num_answers=3000)
+    total_params = sum(p.numel() for p in vqa_model.parameters())
+    
+    print(f"VQA Model created!")
+    print(f"  Total parameters: {total_params:,}")
+    
+    # Test forward pass
+    dummy_image = torch.randn(2, 3, 224, 224)
+    dummy_question = torch.randint(0, 10000, (2, 15))
+    
+    answer_logits = vqa_model(dummy_image, dummy_question)
+    print(f"  Answer logits shape: {answer_logits.shape}")
+    
+    # Example 5: Multimodal Evaluation Metrics
+    print("\n5. Multimodal Evaluation Metrics")
+    print("-" * 35)
+    
+    def calculate_bleu_score(reference, candidate):
+        """Simplified BLEU score calculation"""
+        from collections import Counter
+        
+        # Tokenize (simple whitespace tokenization)
+        ref_tokens = reference.split()
+        cand_tokens = candidate.split()
+        
+        # Calculate precision for 1-grams
+        ref_counts = Counter(ref_tokens)
+        cand_counts = Counter(cand_tokens)
+        
+        overlap = sum(min(ref_counts[token], cand_counts[token]) 
+                     for token in cand_counts)
+        precision = overlap / len(cand_tokens) if len(cand_tokens) > 0 else 0
+        
+        # Simplified BLEU (just 1-gram precision with brevity penalty)
+        brevity_penalty = min(1.0, len(cand_tokens) / len(ref_tokens)) if len(ref_tokens) > 0 else 0
+        bleu = precision * brevity_penalty
+        
+        return bleu
+    
+    # Example captions for evaluation
+    reference_caption = "a brown dog sitting on green grass"
+    candidate_captions = [
+        "a dog sitting on grass",
+        "a brown animal on the ground", 
+        "a cat playing with a ball",
+        "brown dog on green grass"
+    ]
+    
+    print("BLEU Score Evaluation:")
+    for i, candidate in enumerate(candidate_captions):
+        bleu = calculate_bleu_score(reference_caption, candidate)
+        print(f"  Candidate {i+1}: BLEU = {bleu:.3f}")
+        print(f"    Reference: '{reference_caption}'")
+        print(f"    Candidate: '{candidate}'")
+        print()
+    
+    print("✅ Multimodal examples completed!")
+    print("\n🔗 Key Multimodal Applications:")
+    print("  - Image Captioning: Describing images with natural language")
+    print("  - Visual Question Answering: Answering questions about images")
+    print("  - Image-Text Retrieval: Finding relevant images for text queries")
+    print("  - Multimodal Chatbots: Conversational AI with vision capabilities")
+    print("  - Content Generation: Creating images from text descriptions")
 
 
 if __name__ == "__main__":
