@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T06:18:27.413470",
+  "model_name": "EfficientNet-B0",
+  "model_type": "CNN",
+  "dataset": "CIFAR-10",
+  "metrics": {
+    "accuracy": 0.951873905865878,
+    "f1_score": 0.952166794320302,
+    "precision": 0.9629174198491175,
+    "recall": 0.9488340479854467
+  },
+  "training_time": 449.4903543750112,
+  "model_size": 5300000,
+  "additional_info": {}
+}

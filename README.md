@@ -86,6 +86,12 @@ python examples/05_pytorch_examples.py
 
 # 🚀 Train your own LLM!
 python examples/06_llm_training_examples.py
+
+# 🏁 Run comprehensive model evaluation
+python examples/07_model_evaluation_demo.py
+
+# 🌟 Explore interactive AI demos
+python examples/08_advanced_ai_demos.py
 ```
 
 ## 📚 Tutorial Structure
@@ -107,6 +113,8 @@ python examples/06_llm_training_examples.py
   - `04_neural_network_examples.py` - Neural network implementations
   - `05_pytorch_examples.py` - PyTorch deep learning examples
   - **🚀 `06_llm_training_examples.py` - Complete LLM training from scratch**
+  - **🏁 `07_model_evaluation_demo.py` - Comprehensive model evaluation dashboard**
+  - **🌟 `08_advanced_ai_demos.py` - Interactive AI demonstrations and comparisons**
 - **[notebooks/](notebooks/)** - Interactive Jupyter notebooks for hands-on learning
   - `ai_tutorial_complete.ipynb` - Comprehensive AI/ML tutorial
   - `05_pytorch_tutorial.ipynb` - PyTorch deep learning walkthrough
@@ -125,6 +133,9 @@ python examples/06_llm_training_examples.py
 - 📓 **Jupyter Notebooks**: Interactive learning environment
 - 🔍 **Step-by-step Explanations**: Detailed explanations of concepts and code
 - 🗂️ **Organized Structure**: Logical progression from basics to advanced topics
+- **🏁 Model Evaluation Dashboard**: Comprehensive tools for comparing and analyzing model performance
+- **🌟 Interactive AI Demos**: Real-time demonstrations of AI capabilities and model comparisons
+- **📈 Performance Tracking**: Advanced metrics tracking and visualization tools
 
 ## 🤝 Contributing
 

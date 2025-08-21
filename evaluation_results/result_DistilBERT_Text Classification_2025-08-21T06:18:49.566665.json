@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T06:18:49.566665",
+  "model_name": "DistilBERT",
+  "model_type": "Transformer",
+  "dataset": "Text Classification",
+  "metrics": {
+    "accuracy": 0.9038807398165927,
+    "f1_score": 0.9268402812386657,
+    "precision": 0.9209294740465971,
+    "recall": 0.8943240888993201
+  },
+  "training_time": 552.1324630115724,
+  "model_size": 66000000,
+  "additional_info": {}
+}

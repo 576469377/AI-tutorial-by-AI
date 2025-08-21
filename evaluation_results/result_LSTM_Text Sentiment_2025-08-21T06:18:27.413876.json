@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T06:18:27.413876",
+  "model_name": "LSTM",
+  "model_type": "RNN",
+  "dataset": "Text Sentiment",
+  "metrics": {
+    "accuracy": 0.8582713755162464,
+    "f1_score": 0.8599243044336162,
+    "precision": 0.8355537294164646,
+    "recall": 0.8156331846700163
+  },
+  "training_time": 286.6430480509079,
+  "model_size": 500000,
+  "additional_info": {}
+}

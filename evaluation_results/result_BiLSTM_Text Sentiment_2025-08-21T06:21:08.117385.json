@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-21T06:21:08.117385",
+  "model_name": "BiLSTM",
+  "model_type": "RNN",
+  "dataset": "Text Sentiment",
+  "metrics": {
+    "accuracy": 0.8845216563898742,
+    "f1_score": 0.8472984765560523,
+    "precision": 0.8613440424963519,
+    "recall": 0.8355523845455185
+  },
+  "training_time": 310.67145306115935,
+  "model_size": 800000,
+  "additional_info": {}
+}
