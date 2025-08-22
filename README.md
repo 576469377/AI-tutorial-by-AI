@@ -6,7 +6,19 @@ Welcome to the most comprehensive tutorial for learning Artificial Intelligence 
 
 ## 🎯 What You'll Learn
 
-This tutorial series covers everything you need to train your own LLM with practical, runnable examples:
+This tutorial series covers everything you need to train your own LLM with practical, runnable examples. Choose your learning path based on your goals:
+
+### 🗺️ Learning Paths Available
+
+**📚 [Complete Learning Path Guide](docs/learning_paths.md)** - Choose your AI journey!  
+**⚡ [Quick Start for Experienced Developers](docs/quick_start.md)** - Fast-track pathway!
+
+- **🏁 Foundation Track** (Required): AI concepts, Python, and data visualization
+- **📊 Machine Learning Track**: Traditional ML algorithms and business applications  
+- **🧠 Deep Learning Track**: Neural networks, PyTorch, and advanced architectures
+- **🚀 Advanced AI Track**: Large Language Models, multimodal AI, and production systems
+
+### 📖 Core Topics Covered
 
 - **AI Fundamentals**: Core concepts, history, and mathematical foundations
 - **Data Science Basics**: Working with data, visualization, and analysis  
@@ -99,14 +111,52 @@ python examples/09_enhanced_features_demo.py
 
 ## 📚 Tutorial Structure
 
-### 📖 Tutorials
+### 🎯 Choose Your Learning Path
+
+The tutorials are organized into progressive learning tracks. **[📚 See Complete Learning Path Guide](docs/learning_paths.md)** for detailed recommendations.
+
+#### 🏁 Foundation Track (Required for All)
 - **[00_ai_fundamentals](tutorials/00_ai_fundamentals/)** - Core AI concepts and mathematical foundations
 - **[01_basics](tutorials/01_basics/)** - Python for Data Science fundamentals
 - **[02_data_visualization](tutorials/02_data_visualization/)** - Creating compelling visualizations
-- **[03_machine_learning](tutorials/03_machine_learning/)** - ML algorithms and techniques
+
+#### 📊 Machine Learning Track
+- **[03_machine_learning](tutorials/03_machine_learning/)** - Traditional ML algorithms and techniques
+
+#### 🧠 Deep Learning Track  
 - **[04_neural_networks](tutorials/04_neural_networks/)** - Introduction to deep learning with mathematical explanations
 - **[05_pytorch](tutorials/05_pytorch/)** - Deep learning with PyTorch framework
+
+#### 🚀 Advanced AI Track
 - **🌟 [06_large_language_models](tutorials/06_large_language_models/)** - **Build and train your own LLM from scratch**
+
+### 📋 Learning Path Recommendations
+
+| Your Goal | Recommended Path | Duration |
+|-----------|------------------|----------|
+| **Data Science & Analytics** | Foundation → ML Track → Advanced | 10-14 weeks |
+| **AI Engineering** | Foundation → Deep Learning → Advanced | 12-16 weeks |
+| **AI Research** | Foundation → ML + Deep Learning → Advanced | 16-20 weeks |
+| **Business Applications** | Foundation → ML Track | 6-8 weeks |
+
+### 🎯 Self-Assessment: Are You Ready to Skip Ahead?
+
+**Skip Foundation Track** if you can:
+- [ ] Manipulate data with NumPy and Pandas fluently
+- [ ] Create visualizations with matplotlib/seaborn
+- [ ] Understand basic statistics and linear algebra
+
+**Skip to Deep Learning** if you also can:
+- [ ] Implement basic ML algorithms (regression, classification)
+- [ ] Evaluate model performance with cross-validation
+- [ ] Handle feature engineering and data preprocessing
+
+**Skip to Advanced AI** if you also can:
+- [ ] Build and train neural networks with PyTorch
+- [ ] Understand backpropagation and gradient descent
+- [ ] Work with tensors and GPU acceleration
+
+**[⚡ See Quick Start Guide](docs/quick_start.md)** for experienced developers
 
 ### 💻 Examples
 - **[examples/](examples/)** - Standalone Python scripts demonstrating key concepts
