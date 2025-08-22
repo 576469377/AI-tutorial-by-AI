@@ -969,6 +969,432 @@ def multimodal_examples():
     print("  - Image-Text Retrieval: Finding relevant images for text queries")
     print("  - Multimodal Chatbots: Conversational AI with vision capabilities")
     print("  - Content Generation: Creating images from text descriptions")
+    
+    # Section 10: RLHF and Advanced Alignment Examples
+    print("\n10. RLHF and Model Alignment Examples...")
+    rlhf_examples()
+
+
+# ============================================================================
+# 10. RLHF AND MODEL ALIGNMENT EXAMPLES
+# ============================================================================
+
+class SimpleRewardModel(nn.Module):
+    """Simple reward model for RLHF demonstrations"""
+    
+    def __init__(self, vocab_size: int, d_model: int = 256):
+        super().__init__()
+        self.embedding = nn.Embedding(vocab_size, d_model)
+        self.transformer = nn.TransformerEncoder(
+            nn.TransformerEncoderLayer(d_model, nhead=8, batch_first=True),
+            num_layers=2
+        )
+        self.reward_head = nn.Linear(d_model, 1)
+        
+    def forward(self, input_ids, attention_mask=None):
+        x = self.embedding(input_ids)
+        x = self.transformer(x)
+        # Use mean pooling
+        if attention_mask is not None:
+            mask_expanded = attention_mask.unsqueeze(-1).expand(x.size())
+            x = (x * mask_expanded).sum(1) / mask_expanded.sum(1)
+        else:
+            x = x.mean(1)
+        reward = self.reward_head(x)
+        return reward.squeeze(-1)
+
+
+def create_preference_dataset():
+    """Create synthetic preference data for RLHF training"""
+    
+    # Synthetic preference data: prompt -> (chosen_response, rejected_response)
+    preference_data = [
+        {
+            "prompt": "Explain machine learning",
+            "chosen": "Machine learning is a subset of AI that enables computers to learn from data without explicit programming.",
+            "rejected": "Machine learning is when computers become smart and can think like humans."
+        },
+        {
+            "prompt": "How to stay healthy?",
+            "chosen": "Maintain a balanced diet, exercise regularly, get adequate sleep, and have regular health checkups.",
+            "rejected": "Just eat whatever you want and don't worry about it."
+        },
+        {
+            "prompt": "What is Python?",
+            "chosen": "Python is a high-level programming language known for its simplicity and versatility, widely used in data science and AI.",
+            "rejected": "Python is a snake that programmers worship for some reason."
+        },
+        {
+            "prompt": "How to learn programming?",
+            "chosen": "Start with fundamentals, practice regularly, build projects, and learn from community resources and documentation.",
+            "rejected": "Just copy code from the internet until something works."
+        }
+    ]
+    
+    return preference_data
+
+
+def train_reward_model_demo(tokenizer):
+    """Demonstrate reward model training"""
+    print("\n🎯 Reward Model Training Demo")
+    print("-" * 40)
+    
+    # Create synthetic preference dataset
+    preference_data = create_preference_dataset()
+    print(f"Created {len(preference_data)} preference pairs")
+    
+    # Initialize reward model
+    reward_model = SimpleRewardModel(vocab_size=tokenizer.vocab_size)
+    optimizer = optim.Adam(reward_model.parameters(), lr=1e-4)
+    
+    print("\nTraining reward model on preferences...")
+    
+    # Training loop
+    for epoch in range(3):
+        total_loss = 0
+        correct_preferences = 0
+        
+        for example in preference_data:
+            # Tokenize inputs
+            prompt = example['prompt']
+            chosen_text = prompt + " " + example['chosen']
+            rejected_text = prompt + " " + example['rejected']
+            
+            chosen_tokens = tokenizer.encode(chosen_text)[:32]  # Truncate
+            rejected_tokens = tokenizer.encode(rejected_text)[:32]
+            
+            # Pad sequences
+            max_len = max(len(chosen_tokens), len(rejected_tokens))
+            chosen_tokens += [0] * (max_len - len(chosen_tokens))
+            rejected_tokens += [0] * (max_len - len(rejected_tokens))
+            
+            chosen_input = torch.tensor([chosen_tokens])
+            rejected_input = torch.tensor([rejected_tokens])
+            
+            # Get reward scores
+            chosen_reward = reward_model(chosen_input)
+            rejected_reward = reward_model(rejected_input)
+            
+            # Bradley-Terry loss: P(chosen > rejected)
+            loss = -torch.log(torch.sigmoid(chosen_reward - rejected_reward))
+            
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            
+            total_loss += loss.item()
+            
+            # Check if model prefers chosen over rejected
+            if chosen_reward.item() > rejected_reward.item():
+                correct_preferences += 1
+        
+        avg_loss = total_loss / len(preference_data)
+        accuracy = correct_preferences / len(preference_data)
+        
+        print(f"Epoch {epoch + 1}: Loss = {avg_loss:.4f}, Preference Accuracy = {accuracy:.2%}")
+    
+    print("✅ Reward model training completed!")
+    
+    # Test reward model
+    print("\n🧪 Testing Reward Model:")
+    test_responses = [
+        "This is a helpful and informative response.",
+        "This is a low-quality response.",
+        "I provide accurate and detailed information.",
+        "I don't know anything about this topic."
+    ]
+    
+    for response in test_responses:
+        tokens = tokenizer.encode(response)[:32]
+        tokens += [0] * (32 - len(tokens))  # Pad
+        input_tensor = torch.tensor([tokens])
+        
+        with torch.no_grad():
+            reward = reward_model(input_tensor).item()
+        
+        print(f"  Response: '{response[:50]}...'")
+        print(f"  Reward Score: {reward:.3f}")
+        print()
+    
+    return reward_model
+
+
+def ppo_training_demo(model, reward_model, tokenizer):
+    """Demonstrate simplified PPO training for RLHF"""
+    print("\n🚀 PPO Training Demo (Simplified)")
+    print("-" * 40)
+    
+    prompts = [
+        "Explain artificial intelligence",
+        "How to learn programming", 
+        "What is machine learning",
+        "Benefits of exercise"
+    ]
+    
+    print("Simulating PPO training steps...")
+    
+    # Simplified PPO simulation
+    for step in range(3):
+        print(f"\nPPO Step {step + 1}:")
+        
+        total_reward = 0
+        for prompt in prompts:
+            # Simulate text generation (normally would use model.generate())
+            generated_responses = [
+                f"{prompt}: This is a helpful and detailed explanation.",
+                f"{prompt}: This is a brief but accurate answer.",
+                f"{prompt}: This provides comprehensive information."
+            ]
+            
+            # Calculate rewards for each response
+            for response in generated_responses:
+                tokens = tokenizer.encode(response)[:32]
+                tokens += [0] * (32 - len(tokens))
+                input_tensor = torch.tensor([tokens])
+                
+                with torch.no_grad():
+                    reward = reward_model(input_tensor).item()
+                
+                total_reward += reward
+        
+        avg_reward = total_reward / (len(prompts) * len(generated_responses))
+        print(f"  Average Reward: {avg_reward:.3f}")
+        
+        # In real PPO, we would:
+        # 1. Compute log probabilities and importance ratios
+        # 2. Apply clipped objective function
+        # 3. Update policy with gradient descent
+        # 4. Maintain KL divergence constraints
+        
+        print(f"  📈 Policy improvement step completed")
+    
+    print("\n✅ PPO training simulation completed!")
+    print("\n🔍 Key PPO Components:")
+    print("  - Importance Sampling: ratio = π_new(a|s) / π_old(a|s)")
+    print("  - Clipped Objective: min(ratio * advantage, clip(ratio) * advantage)")
+    print("  - KL Penalty: β * KL(π_new || π_old)")
+    print("  - Value Function: V(s) for advantage estimation")
+
+
+def dpo_training_demo(tokenizer):
+    """Demonstrate Direct Preference Optimization (DPO)"""
+    print("\n🎯 Direct Preference Optimization (DPO) Demo")
+    print("-" * 40)
+    
+    print("DPO directly optimizes preferences without reward modeling!")
+    
+    # Create preference dataset
+    preference_data = create_preference_dataset()
+    
+    # Simulate DPO loss calculation
+    print("\n📊 DPO Loss Calculation:")
+    
+    for i, example in enumerate(preference_data[:2]):  # Show first 2 examples
+        print(f"\nExample {i + 1}:")
+        print(f"  Prompt: {example['prompt']}")
+        print(f"  Chosen: {example['chosen']}")
+        print(f"  Rejected: {example['rejected']}")
+        
+        # Simulate log probabilities (in real implementation, these come from model)
+        chosen_logp_policy = -2.1  # Simulated
+        rejected_logp_policy = -3.2
+        chosen_logp_ref = -2.5     # Reference model
+        rejected_logp_ref = -3.0
+        
+        # DPO loss calculation
+        beta = 0.1
+        policy_diff = chosen_logp_policy - rejected_logp_policy
+        ref_diff = chosen_logp_ref - rejected_logp_ref
+        
+        dpo_loss = -math.log(1 / (1 + math.exp(-beta * (policy_diff - ref_diff))))
+        
+        print(f"  Policy Diff: {policy_diff:.3f}")
+        print(f"  Reference Diff: {ref_diff:.3f}")
+        print(f"  DPO Loss: {dpo_loss:.3f}")
+    
+    print("\n✅ DPO advantages over RLHF:")
+    print("  - No reward model needed")
+    print("  - More stable training")
+    print("  - Direct preference optimization")
+    print("  - Simpler implementation")
+
+
+def constitutional_ai_demo():
+    """Demonstrate Constitutional AI principles"""
+    print("\n📜 Constitutional AI Demo")
+    print("-" * 40)
+    
+    # Define AI constitution
+    constitution = [
+        "Be helpful, harmless, and honest",
+        "Respect human autonomy and dignity", 
+        "Provide accurate information",
+        "Admit uncertainty when appropriate",
+        "Avoid generating harmful content"
+    ]
+    
+    print("🏛️  AI Constitution:")
+    for i, principle in enumerate(constitution, 1):
+        print(f"  {i}. {principle}")
+    
+    # Example scenarios
+    scenarios = [
+        {
+            "user_input": "How to hack into someone's computer?",
+            "initial_response": "I can't provide instructions for unauthorized computer access as it's illegal and harmful.",
+            "critique": "Good - follows principle of avoiding harmful content and respects legal boundaries.",
+            "revision": "N/A - Initial response already follows constitutional principles."
+        },
+        {
+            "user_input": "What's the capital of Mars?",
+            "initial_response": "The capital of Mars is New Geneva.",
+            "critique": "Problematic - provides false information. Should admit uncertainty about fictional concepts.",
+            "revision": "Mars doesn't have a capital city as it's a planet without human settlements or governments."
+        }
+    ]
+    
+    print("\n🔍 Constitutional AI in Action:")
+    for i, scenario in enumerate(scenarios, 1):
+        print(f"\nScenario {i}:")
+        print(f"  User Input: {scenario['user_input']}")
+        print(f"  Initial Response: {scenario['initial_response']}")
+        print(f"  Constitutional Critique: {scenario['critique']}")
+        print(f"  Revised Response: {scenario['revision']}")
+    
+    print("\n✅ Constitutional AI Process:")
+    print("  1. Generate initial response")
+    print("  2. Critique against constitution")
+    print("  3. Revise if needed")
+    print("  4. Repeat until constitutional compliance")
+
+
+def chain_of_thought_demo():
+    """Demonstrate Chain-of-Thought reasoning"""
+    print("\n🧠 Chain-of-Thought (CoT) Reasoning Demo")
+    print("-" * 40)
+    
+    problem = "If a train travels 240 miles in 4 hours, what is its average speed?"
+    
+    print(f"Problem: {problem}")
+    
+    # Standard response
+    print("\n❌ Standard Response:")
+    print("The speed is 60 mph.")
+    
+    # Chain-of-thought response
+    print("\n✅ Chain-of-Thought Response:")
+    print("Let me think step by step:")
+    print("1. I need to find average speed")
+    print("2. Speed = Distance / Time")
+    print("3. Distance = 240 miles")
+    print("4. Time = 4 hours")
+    print("5. Speed = 240 miles ÷ 4 hours = 60 mph")
+    print("Therefore, the average speed is 60 mph.")
+    
+    print("\n🎯 CoT Benefits:")
+    print("  - Improved reasoning quality")
+    print("  - Better problem decomposition")
+    print("  - More transparent thinking")
+    print("  - Reduced errors in complex problems")
+    
+    # Few-shot CoT example
+    print("\n📚 Few-Shot CoT Example:")
+    examples = [
+        "Q: 15 + 27 = ?\nA: Let me add step by step: 15 + 27 = 15 + 20 + 7 = 35 + 7 = 42",
+        "Q: 8 × 9 = ?\nA: Let me multiply: 8 × 9 = 8 × 10 - 8 × 1 = 80 - 8 = 72"
+    ]
+    
+    for example in examples:
+        print(f"  {example}")
+
+
+def alignment_techniques_demo():
+    """Demonstrate various alignment techniques"""
+    print("\n🎯 Model Alignment Techniques Overview")
+    print("-" * 40)
+    
+    techniques = {
+        "RLHF": {
+            "description": "Reinforcement Learning from Human Feedback",
+            "components": ["SFT", "Reward Modeling", "PPO Training"],
+            "benefits": "Aligns model behavior with human preferences",
+            "challenges": "Complex pipeline, reward hacking risk"
+        },
+        "DPO": {
+            "description": "Direct Preference Optimization", 
+            "components": ["Preference Data", "Direct Training"],
+            "benefits": "Simpler than RLHF, more stable training",
+            "challenges": "Still requires high-quality preference data"
+        },
+        "Constitutional AI": {
+            "description": "Training with explicit principles",
+            "components": ["Constitution", "Critique", "Revision"],
+            "benefits": "Transparent principles, self-improvement",
+            "challenges": "Defining comprehensive constitution"
+        },
+        "RLAIF": {
+            "description": "Reinforcement Learning from AI Feedback",
+            "components": ["AI Labeler", "Preference Generation", "RL Training"],
+            "benefits": "Scalable feedback, consistent preferences",
+            "challenges": "Quality depends on AI labeler capability"
+        }
+    }
+    
+    for name, details in techniques.items():
+        print(f"\n🔧 {name}: {details['description']}")
+        print(f"  Components: {', '.join(details['components'])}")
+        print(f"  Benefits: {details['benefits']}")
+        print(f"  Challenges: {details['challenges']}")
+    
+    print("\n📈 Alignment Research Frontiers:")
+    print("  - Scalable oversight methods")
+    print("  - Interpretability and transparency")
+    print("  - Robustness to distributional shift")
+    print("  - Value learning and specification")
+    print("  - Multi-agent alignment scenarios")
+
+
+def rlhf_examples():
+    """Main function for RLHF and alignment examples"""
+    print("\n🤖 RLHF and Model Alignment Examples")
+    print("=" * 50)
+    
+    # Create a simple tokenizer for demonstrations
+    tokenizer = SimpleTokenizer()
+    sample_texts = [
+        "this is helpful information about machine learning",
+        "here is a detailed explanation of the topic",
+        "i provide accurate and useful responses",
+        "this response is not very informative",
+        "i don't know much about this subject"
+    ]
+    tokenizer.build_vocab(sample_texts, min_freq=1)
+    
+    # 1. Reward Model Training
+    reward_model = train_reward_model_demo(tokenizer)
+    
+    # 2. PPO Training Demo
+    ppo_training_demo(None, reward_model, tokenizer)
+    
+    # 3. DPO Demo
+    dpo_training_demo(tokenizer)
+    
+    # 4. Constitutional AI Demo
+    constitutional_ai_demo()
+    
+    # 5. Chain-of-Thought Demo
+    chain_of_thought_demo()
+    
+    # 6. Alignment Techniques Overview
+    alignment_techniques_demo()
+    
+    print("\n✅ RLHF and alignment examples completed!")
+    print("\n🌟 Key Takeaways:")
+    print("  - RLHF aligns models with human preferences through 3-stage process")
+    print("  - DPO offers simpler alternative to RLHF without reward modeling")
+    print("  - Constitutional AI provides transparent principle-based training")
+    print("  - Chain-of-Thought improves reasoning capabilities")
+    print("  - Model alignment is crucial for safe and beneficial AI systems")
 
 
 if __name__ == "__main__":

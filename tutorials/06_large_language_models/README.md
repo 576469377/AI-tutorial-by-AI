@@ -762,6 +762,241 @@ instruction_data = [
 ]
 ```
 
+#### Reinforcement Learning from Human Feedback (RLHF)
+
+RLHF is a crucial technique for aligning language models with human preferences and values. It consists of three main stages:
+
+**Stage 1: Supervised Fine-Tuning (SFT)**
+```python
+# Fine-tune base model on high-quality instruction-following data
+def train_sft_model(base_model, instruction_dataset):
+    """Train supervised fine-tuning model"""
+    model = base_model.copy()
+    
+    for batch in instruction_dataset:
+        # Standard supervised learning
+        prompts = batch['prompts'] 
+        responses = batch['responses']
+        
+        loss = model.compute_loss(prompts, responses)
+        loss.backward()
+        optimizer.step()
+    
+    return model
+```
+
+**Stage 2: Reward Model Training**
+```python
+class RewardModel(nn.Module):
+    """Reward model to score model outputs based on human preferences"""
+    
+    def __init__(self, base_model):
+        super().__init__()
+        self.base_model = base_model
+        self.reward_head = nn.Linear(base_model.config.hidden_size, 1)
+    
+    def forward(self, input_ids, attention_mask):
+        outputs = self.base_model(input_ids, attention_mask=attention_mask)
+        # Use last token representation for reward scoring
+        last_hidden = outputs.last_hidden_state[:, -1, :]
+        reward = self.reward_head(last_hidden)
+        return reward
+
+def train_reward_model(model, preference_data):
+    """Train reward model on human preference comparisons"""
+    
+    for batch in preference_data:
+        prompts = batch['prompts']
+        chosen_responses = batch['chosen']  # Human-preferred responses
+        rejected_responses = batch['rejected']  # Less preferred responses
+        
+        # Get reward scores
+        chosen_rewards = model(prompts + chosen_responses)
+        rejected_rewards = model(prompts + rejected_responses)
+        
+        # Bradley-Terry preference model loss
+        loss = -torch.log(torch.sigmoid(chosen_rewards - rejected_rewards)).mean()
+        
+        loss.backward()
+        optimizer.step()
+    
+    return model
+```
+
+**Stage 3: Proximal Policy Optimization (PPO)**
+```python
+def ppo_training_step(policy_model, reward_model, old_policy, batch):
+    """PPO training step for RLHF"""
+    
+    prompts = batch['prompts']
+    
+    # Generate responses with current policy
+    with torch.no_grad():
+        responses = policy_model.generate(prompts, do_sample=True)
+        old_log_probs = old_policy.compute_log_probs(prompts, responses)
+    
+    # Compute rewards
+    rewards = reward_model(prompts + responses)
+    
+    # Compute new log probabilities
+    new_log_probs = policy_model.compute_log_probs(prompts, responses)
+    
+    # PPO loss components
+    ratio = torch.exp(new_log_probs - old_log_probs)
+    clipped_ratio = torch.clamp(ratio, 1 - 0.2, 1 + 0.2)  # epsilon = 0.2
+    
+    policy_loss = -torch.min(ratio * rewards, clipped_ratio * rewards).mean()
+    
+    # KL divergence penalty to prevent model from deviating too much
+    kl_penalty = torch.nn.functional.kl_div(new_log_probs, old_log_probs, reduction='mean')
+    
+    total_loss = policy_loss + 0.01 * kl_penalty  # beta = 0.01
+    
+    return total_loss
+```
+
+#### Direct Preference Optimization (DPO)
+
+A simpler alternative to RLHF that directly optimizes preferences without reward modeling:
+
+```python
+def dpo_loss(policy_model, reference_model, batch, beta=0.1):
+    """Direct Preference Optimization loss"""
+    
+    prompts = batch['prompts']
+    chosen = batch['chosen']
+    rejected = batch['rejected']
+    
+    # Get log probabilities from policy and reference models
+    policy_chosen_logps = policy_model.compute_log_probs(prompts, chosen)
+    policy_rejected_logps = policy_model.compute_log_probs(prompts, rejected)
+    
+    ref_chosen_logps = reference_model.compute_log_probs(prompts, chosen)
+    ref_rejected_logps = reference_model.compute_log_probs(prompts, rejected)
+    
+    # DPO loss
+    policy_diff = policy_chosen_logps - policy_rejected_logps
+    ref_diff = ref_chosen_logps - ref_rejected_logps
+    
+    loss = -torch.log(torch.sigmoid(beta * (policy_diff - ref_diff))).mean()
+    
+    return loss
+```
+
+#### Constitutional AI
+
+Train models to follow a set of principles or "constitution":
+
+```python
+def constitutional_ai_training(model, constitution_rules):
+    """
+    Constitutional AI training process
+    """
+    # Example constitution rules
+    rules = [
+        "Be helpful and harmless",
+        "Do not provide information that could cause harm",
+        "Be honest about limitations and uncertainty",
+        "Respect human autonomy and dignity"
+    ]
+    
+    # Self-critique and revision process
+    def critique_and_revise(prompt, initial_response):
+        # Generate critique based on constitution
+        critique_prompt = f"""
+        Response: {initial_response}
+        Constitution: {rules}
+        
+        Critique this response according to the constitutional principles:
+        """
+        critique = model.generate(critique_prompt)
+        
+        # Generate revised response
+        revision_prompt = f"""
+        Original: {initial_response}
+        Critique: {critique}
+        
+        Provide a revised response that better follows the constitution:
+        """
+        revised_response = model.generate(revision_prompt)
+        
+        return revised_response
+    
+    return critique_and_revise
+
+# Usage example
+constitutional_trainer = constitutional_ai_training(model, constitution_rules)
+```
+
+#### Chain-of-Thought (CoT) and Advanced Prompting
+
+Enhance reasoning capabilities through structured prompting:
+
+```python
+def chain_of_thought_prompting(model, question):
+    """Implement Chain-of-Thought reasoning"""
+    
+    cot_prompt = f"""
+    Question: {question}
+    
+    Let's think step by step:
+    1. First, I need to understand what is being asked
+    2. Then, I'll break down the problem into smaller parts
+    3. I'll solve each part systematically
+    4. Finally, I'll combine the results for the answer
+    
+    Step-by-step reasoning:
+    """
+    
+    reasoning = model.generate(cot_prompt, max_length=200)
+    
+    final_prompt = f"""
+    {cot_prompt}
+    {reasoning}
+    
+    Therefore, the answer is:
+    """
+    
+    answer = model.generate(final_prompt, max_length=50)
+    return reasoning, answer
+
+# Example usage
+question = "If a train travels 300 miles in 4 hours, what is its average speed?"
+reasoning, answer = chain_of_thought_prompting(model, question)
+```
+
+#### Model Alignment Techniques
+
+Advanced techniques for ensuring model behavior aligns with human values:
+
+```python
+def alignment_finetuning(model, alignment_dataset):
+    """Fine-tune model for better alignment with human values"""
+    
+    # Value-based training data
+    alignment_examples = [
+        {
+            "scenario": "User asks for harmful information",
+            "good_response": "I can't provide that information as it could cause harm...",
+            "bad_response": "Here's how to cause harm...",
+            "principle": "Safety and harm prevention"
+        }
+    ]
+    
+    for example in alignment_examples:
+        # Train model to prefer good responses
+        good_score = model.score_response(example['scenario'], example['good_response'])
+        bad_score = model.score_response(example['scenario'], example['bad_response'])
+        
+        # Contrastive loss to prefer good over bad
+        loss = torch.max(torch.tensor(0.0), bad_score - good_score + 1.0)
+        
+        loss.backward()
+        optimizer.step()
+    
+    return model
+```
+
 ### 12. Deployment and Production
 
 #### Model Serving
@@ -1204,8 +1439,16 @@ Keep experimenting, and you'll be amazed at what you can create! 🚀
 
 **Advanced Architectures:**
 - Explore specialized architectures (BERT, RoBERTa, T5)
-- Study reinforcement learning from human feedback (RLHF)
+- ✅ **Covered in this tutorial**: Reinforcement learning from human feedback (RLHF)
 - Learn about mixture of experts (MoE) models
+- Study emerging architectures (Mamba, RetNet, Maia)
+
+**Advanced Alignment Techniques:**
+- ✅ **Covered in this tutorial**: RLHF, DPO, Constitutional AI
+- Implement RLAIF (Reinforcement Learning from AI Feedback)
+- Study debate-based alignment methods
+- Explore interpretability and steering techniques
+- Learn about scalable oversight methods
 
 **Multimodal Frontiers:**
 - ✅ **Covered in this tutorial**: Vision + Language models
