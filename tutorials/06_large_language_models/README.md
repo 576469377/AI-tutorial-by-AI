@@ -1439,8 +1439,16 @@ Keep experimenting, and you'll be amazed at what you can create! 🚀
 
 **Advanced Architectures:**
 - Explore specialized architectures (BERT, RoBERTa, T5)
-- Study reinforcement learning from human feedback (RLHF)
+- ✅ **Covered in this tutorial**: Reinforcement learning from human feedback (RLHF)
 - Learn about mixture of experts (MoE) models
+- Study emerging architectures (Mamba, RetNet, Maia)
+
+**Advanced Alignment Techniques:**
+- ✅ **Covered in this tutorial**: RLHF, DPO, Constitutional AI
+- Implement RLAIF (Reinforcement Learning from AI Feedback)
+- Study debate-based alignment methods
+- Explore interpretability and steering techniques
+- Learn about scalable oversight methods
 
 **Multimodal Frontiers:**
 - ✅ **Covered in this tutorial**: Vision + Language models
