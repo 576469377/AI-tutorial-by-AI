@@ -3,7 +3,7 @@
   "project_name": "AI Tutorial by AI",
   "analysis_date": "2024",
   "file_structure": {
-    "total_files": 369,
+    "total_files": 315,
     "python_files": 24,
     "notebook_files": 3,
     "markdown_files": 18,
@@ -49,6 +49,6 @@
     "test_coverage": "Unknown",
     "tests_passing": "Unknown",
     "total_tests": 3,
-    "test_framework": "pytest available"
+    "test_framework": "pytest not available"
   }
 }

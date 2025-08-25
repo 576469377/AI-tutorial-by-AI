@@ -90,21 +90,6 @@
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:31:02.317934",
-    "model_name": "Simple RNN",
-    "model_type": "RNN",
-    "dataset": "Text Sentiment",
-    "metrics": {
-      "accuracy": 0.704201643959466,
-      "f1_score": 0.7240773736152393,
-      "precision": 0.7496089991986259,
-      "recall": 0.6470343196612061
-    },
-    "training_time": 171.95906517533905,
-    "model_size": 100000,
-    "additional_info": {}
-  },
-  {
     "timestamp": "2025-08-21T06:18:49.565445",
     "model_name": "ResNet-50",
     "model_type": "CNN",
@@ -132,21 +117,6 @@
     },
     "training_time": 0.01282644271850586,
     "model_size": 12,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:31:02.317660",
-    "model_name": "ResNet-50",
-    "model_type": "CNN",
-    "dataset": "CIFAR-10",
-    "metrics": {
-      "accuracy": 0.9614055255366624,
-      "f1_score": 0.9263487648831535,
-      "precision": 0.9480971888643976,
-      "recall": 0.9110984342447243
-    },
-    "training_time": 595.0528524679705,
-    "model_size": 25000000,
     "additional_info": {}
   },
   {
@@ -360,21 +330,6 @@
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:31:01.761936",
-    "model_name": "Random Forest (Complex)",
-    "model_type": "Traditional ML",
-    "dataset": "Synthetic Classification",
-    "metrics": {
-      "accuracy": 0.77,
-      "f1_score": 0.7708291490246537,
-      "precision": 0.7743524150268337,
-      "recall": 0.77
-    },
-    "training_time": 0.2777581214904785,
-    "model_size": 2000,
-    "additional_info": {}
-  },
-  {
     "timestamp": "2025-08-21T06:53:18.350919",
     "model_name": "Logistic Regression (Complex)",
     "model_type": "Traditional ML",
@@ -420,36 +375,6 @@
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:31:01.303448",
-    "model_name": "Random Forest",
-    "model_type": "Traditional ML",
-    "dataset": "Iris",
-    "metrics": {
-      "accuracy": 1.0,
-      "f1_score": 1.0,
-      "precision": 1.0,
-      "recall": 1.0
-    },
-    "training_time": 0.11477327346801758,
-    "model_size": 400,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:31:02.318424",
-    "model_name": "BERT-Base",
-    "model_type": "Transformer",
-    "dataset": "Text Classification",
-    "metrics": {
-      "accuracy": 0.9295583707517002,
-      "f1_score": 0.908486881085936,
-      "precision": 0.9244415306581785,
-      "recall": 0.9120343955749259
-    },
-    "training_time": 989.1453008798757,
-    "model_size": 110000000,
-    "additional_info": {}
-  },
-  {
     "timestamp": "2025-08-21T06:53:19.212285",
     "model_name": "EfficientNet-B0",
     "model_type": "CNN",
@@ -492,21 +417,6 @@
     },
     "training_time": 968.8304654664665,
     "model_size": 110000000,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:31:02.318053",
-    "model_name": "LSTM",
-    "model_type": "RNN",
-    "dataset": "Text Sentiment",
-    "metrics": {
-      "accuracy": 0.8263083976368154,
-      "f1_score": 0.8372186593358372,
-      "precision": 0.8495692441039022,
-      "recall": 0.7789102456601461
-    },
-    "training_time": 266.6053991739664,
-    "model_size": 500000,
     "additional_info": {}
   },
   {
@@ -597,21 +507,6 @@
     },
     "training_time": 515.3775422352112,
     "model_size": 12000000,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:31:02.318181",
-    "model_name": "BiLSTM",
-    "model_type": "RNN",
-    "dataset": "Text Sentiment",
-    "metrics": {
-      "accuracy": 0.855947868744416,
-      "f1_score": 0.8744434169191487,
-      "precision": 0.8898491783454943,
-      "recall": 0.8475954962257221
-    },
-    "training_time": 318.4173650003313,
-    "model_size": 800000,
     "additional_info": {}
   },
   {
@@ -792,21 +687,6 @@
     },
     "training_time": 0.5503075122833252,
     "model_size": 2590,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:31:02.318303",
-    "model_name": "Small Transformer",
-    "model_type": "Transformer",
-    "dataset": "Text Classification",
-    "metrics": {
-      "accuracy": 0.8834385208014561,
-      "f1_score": 0.8551072509807467,
-      "precision": 0.9057241384969728,
-      "recall": 0.9017516720560784
-    },
-    "training_time": 495.98507947019795,
-    "model_size": 12000000,
     "additional_info": {}
   },
   {
@@ -1215,21 +1095,6 @@
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:31:02.317808",
-    "model_name": "EfficientNet-B0",
-    "model_type": "CNN",
-    "dataset": "CIFAR-10",
-    "metrics": {
-      "accuracy": 0.9507795365699164,
-      "f1_score": 0.9564583146500959,
-      "precision": 0.9591749504971779,
-      "recall": 0.945815330535485
-    },
-    "training_time": 453.23466819872044,
-    "model_size": 5300000,
-    "additional_info": {}
-  },
-  {
     "timestamp": "2025-08-21T06:21:08.117788",
     "model_name": "DistilBERT",
     "model_type": "Transformer",
@@ -1287,21 +1152,6 @@
     },
     "training_time": 321.1983068297623,
     "model_size": 800000,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:31:02.317086",
-    "model_name": "MLP (Complex)",
-    "model_type": "Traditional ML",
-    "dataset": "Synthetic Classification",
-    "metrics": {
-      "accuracy": 0.84,
-      "f1_score": 0.8404687013746044,
-      "precision": 0.8422775761973876,
-      "recall": 0.84
-    },
-    "training_time": 0.5506401062011719,
-    "model_size": 2590,
     "additional_info": {}
   },
   {
@@ -1440,51 +1290,6 @@
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:31:02.318543",
-    "model_name": "DistilBERT",
-    "model_type": "Transformer",
-    "dataset": "Text Classification",
-    "metrics": {
-      "accuracy": 0.9214766135999657,
-      "f1_score": 0.898367350839107,
-      "precision": 0.9074381215015153,
-      "recall": 0.8671138400100846
-    },
-    "training_time": 533.9676963742636,
-    "model_size": 66000000,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:31:01.174246",
-    "model_name": "Logistic Regression",
-    "model_type": "Traditional ML",
-    "dataset": "Iris",
-    "metrics": {
-      "accuracy": 1.0,
-      "f1_score": 1.0,
-      "precision": 1.0,
-      "recall": 1.0
-    },
-    "training_time": 0.014131546020507812,
-    "model_size": 12,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:31:02.317507",
-    "model_name": "Simple CNN",
-    "model_type": "CNN",
-    "dataset": "CIFAR-10",
-    "metrics": {
-      "accuracy": 0.7721327186418884,
-      "f1_score": 0.8013374418865602,
-      "precision": 0.786675748266001,
-      "recall": 0.7167227107946151
-    },
-    "training_time": 186.49021529476482,
-    "model_size": 250000,
-    "additional_info": {}
-  },
-  {
     "timestamp": "2025-08-21T06:21:07.567043",
     "model_name": "Random Forest (Complex)",
     "model_type": "Traditional ML",
@@ -1530,21 +1335,6 @@
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:31:01.466639",
-    "model_name": "Logistic Regression (Complex)",
-    "model_type": "Traditional ML",
-    "dataset": "Synthetic Classification",
-    "metrics": {
-      "accuracy": 0.6833333333333333,
-      "f1_score": 0.6846246788413971,
-      "precision": 0.689631434169642,
-      "recall": 0.6833333333333333
-    },
-    "training_time": 0.01054072380065918,
-    "model_size": 60,
-    "additional_info": {}
-  },
-  {
     "timestamp": "2025-08-25T03:05:13.219410",
     "model_name": "Random Forest",
     "model_type": "Traditional ML",
@@ -1560,22 +1350,7 @@
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:31:01.449000",
-    "model_name": "MLP",
-    "model_type": "Traditional ML",
-    "dataset": "Iris",
-    "metrics": {
-      "accuracy": 1.0,
-      "f1_score": 1.0,
-      "precision": 1.0,
-      "recall": 1.0
-    },
-    "training_time": 0.14116287231445312,
-    "model_size": 1790,
-    "additional_info": {}
-  },
-  {
-    "timestamp": "2025-08-25T06:51:46.737507",
+    "timestamp": "2025-08-25T08:44:27.313155",
     "model_name": "Logistic Regression",
     "model_type": "Traditional ML",
     "dataset": "Iris",
@@ -1585,12 +1360,12 @@
       "precision": 1.0,
       "recall": 1.0
     },
-    "training_time": 0.013452768325805664,
+    "training_time": 0.012950897216796875,
     "model_size": 12,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:46.866650",
+    "timestamp": "2025-08-25T08:44:27.442847",
     "model_name": "Random Forest",
     "model_type": "Traditional ML",
     "dataset": "Iris",
@@ -1600,12 +1375,12 @@
       "precision": 1.0,
       "recall": 1.0
     },
-    "training_time": 0.1145942211151123,
+    "training_time": 0.11499357223510742,
     "model_size": 400,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.011496",
+    "timestamp": "2025-08-25T08:44:27.590004",
     "model_name": "MLP",
     "model_type": "Traditional ML",
     "dataset": "Iris",
@@ -1615,12 +1390,12 @@
       "precision": 1.0,
       "recall": 1.0
     },
-    "training_time": 0.14039373397827148,
+    "training_time": 0.142805814743042,
     "model_size": 1790,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.029138",
+    "timestamp": "2025-08-25T08:44:27.607477",
     "model_name": "Logistic Regression (Complex)",
     "model_type": "Traditional ML",
     "dataset": "Synthetic Classification",
@@ -1630,12 +1405,12 @@
       "precision": 0.689631434169642,
       "recall": 0.6833333333333333
     },
-    "training_time": 0.01067662239074707,
+    "training_time": 0.010418415069580078,
     "model_size": 60,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.347614",
+    "timestamp": "2025-08-25T08:44:27.903037",
     "model_name": "Random Forest (Complex)",
     "model_type": "Traditional ML",
     "dataset": "Synthetic Classification",
@@ -1645,12 +1420,12 @@
       "precision": 0.7743524150268337,
       "recall": 0.77
     },
-    "training_time": 0.30107903480529785,
+    "training_time": 0.27764248847961426,
     "model_size": 2000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.904316",
+    "timestamp": "2025-08-25T08:44:28.461664",
     "model_name": "MLP (Complex)",
     "model_type": "Traditional ML",
     "dataset": "Synthetic Classification",
@@ -1660,142 +1435,142 @@
       "precision": 0.8422775761973876,
       "recall": 0.84
     },
-    "training_time": 0.5521721839904785,
+    "training_time": 0.5540993213653564,
     "model_size": 2590,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.904745",
+    "timestamp": "2025-08-25T08:44:28.462091",
     "model_name": "Simple CNN",
     "model_type": "CNN",
     "dataset": "CIFAR-10",
     "metrics": {
-      "accuracy": 0.7999188454641026,
-      "f1_score": 0.7492790391112346,
-      "precision": 0.7582122664337478,
-      "recall": 0.739795095949183
+      "accuracy": 0.7912185181848869,
+      "f1_score": 0.7662667769075951,
+      "precision": 0.7698341275466705,
+      "recall": 0.7633540528013993
     },
-    "training_time": 181.63137486008748,
+    "training_time": 176.49605506215826,
     "model_size": 250000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.904919",
+    "timestamp": "2025-08-25T08:44:28.462236",
     "model_name": "ResNet-50",
     "model_type": "CNN",
     "dataset": "CIFAR-10",
     "metrics": {
-      "accuracy": 0.9434226466521861,
-      "f1_score": 0.9215778231292936,
-      "precision": 0.9243942644683166,
-      "recall": 0.9325424747864509
+      "accuracy": 0.9483868633766402,
+      "f1_score": 0.9197736947497881,
+      "precision": 0.9460474420644612,
+      "recall": 0.9025253456432427
     },
-    "training_time": 560.2609164349527,
+    "training_time": 634.6551650922424,
     "model_size": 25000000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.905049",
+    "timestamp": "2025-08-25T08:44:28.462368",
     "model_name": "EfficientNet-B0",
     "model_type": "CNN",
     "dataset": "CIFAR-10",
     "metrics": {
-      "accuracy": 0.9663943382520781,
-      "f1_score": 0.9584791528793551,
-      "precision": 0.9578590660528941,
-      "recall": 0.9450861399003716
+      "accuracy": 0.9570087702907766,
+      "f1_score": 0.9514961619798987,
+      "precision": 0.960096010948453,
+      "recall": 0.9543808462717213
     },
-    "training_time": 414.30104344289583,
+    "training_time": 390.8058776520915,
     "model_size": 5300000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.905183",
+    "timestamp": "2025-08-25T08:44:28.462500",
     "model_name": "Simple RNN",
     "model_type": "RNN",
     "dataset": "Text Sentiment",
     "metrics": {
-      "accuracy": 0.7609861382228619,
-      "f1_score": 0.7346169256050813,
-      "precision": 0.744393074629793,
-      "recall": 0.7383699235353243
+      "accuracy": 0.7349079050298201,
+      "f1_score": 0.7386370250799482,
+      "precision": 0.7326758751724609,
+      "recall": 0.6455931367826452
     },
-    "training_time": 124.83318278799143,
+    "training_time": 144.50098908038535,
     "model_size": 100000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.905306",
+    "timestamp": "2025-08-25T08:44:28.462640",
     "model_name": "LSTM",
     "model_type": "RNN",
     "dataset": "Text Sentiment",
     "metrics": {
-      "accuracy": 0.8379549050917714,
-      "f1_score": 0.8154588401254761,
-      "precision": 0.8203024244960961,
-      "recall": 0.7950918331922905
+      "accuracy": 0.8336661576483752,
+      "f1_score": 0.8046468249282581,
+      "precision": 0.8487043987836208,
+      "recall": 0.8331930920055534
     },
-    "training_time": 258.07181906842044,
+    "training_time": 318.9974571667116,
     "model_size": 500000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.905435",
+    "timestamp": "2025-08-25T08:44:28.462763",
     "model_name": "BiLSTM",
     "model_type": "RNN",
     "dataset": "Text Sentiment",
     "metrics": {
-      "accuracy": 0.8743959403414637,
-      "f1_score": 0.8663910603549503,
-      "precision": 0.880888601460393,
-      "recall": 0.853066638088829
+      "accuracy": 0.8774185774308605,
+      "f1_score": 0.8710058553310926,
+      "precision": 0.862808869108456,
+      "recall": 0.8305552353913891
     },
-    "training_time": 356.9908147769759,
+    "training_time": 330.8251882783144,
     "model_size": 800000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.905554",
+    "timestamp": "2025-08-25T08:44:28.462886",
     "model_name": "Small Transformer",
     "model_type": "Transformer",
     "dataset": "Text Classification",
     "metrics": {
-      "accuracy": 0.8890363550120193,
-      "f1_score": 0.89761465508315,
-      "precision": 0.8904427162373788,
-      "recall": 0.8664023607487654
+      "accuracy": 0.8755243017492931,
+      "f1_score": 0.8923100947990954,
+      "precision": 0.9011976162570869,
+      "recall": 0.8685025438856185
     },
-    "training_time": 452.29744176749284,
+    "training_time": 440.40319171173815,
     "model_size": 12000000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.905683",
+    "timestamp": "2025-08-25T08:44:28.463009",
     "model_name": "BERT-Base",
     "model_type": "Transformer",
     "dataset": "Text Classification",
     "metrics": {
-      "accuracy": 0.947713684499742,
-      "f1_score": 0.9346113598950972,
-      "precision": 0.9391664923029219,
-      "recall": 0.8904189355369251
+      "accuracy": 0.9309686168336838,
+      "f1_score": 0.9152883844358829,
+      "precision": 0.95051899999791,
+      "recall": 0.9137214653815492
     },
-    "training_time": 810.5855963651983,
+    "training_time": 829.0107743830055,
     "model_size": 110000000,
     "additional_info": {}
   },
   {
-    "timestamp": "2025-08-25T06:51:47.905826",
+    "timestamp": "2025-08-25T08:44:28.463125",
     "model_name": "DistilBERT",
     "model_type": "Transformer",
     "dataset": "Text Classification",
     "metrics": {
-      "accuracy": 0.9173356582759279,
-      "f1_score": 0.897851175700099,
-      "precision": 0.9145702222562047,
-      "recall": 0.8666641247197008
+      "accuracy": 0.9403230549990991,
+      "f1_score": 0.8564567998350026,
+      "precision": 0.9303259827626293,
+      "recall": 0.8749723945899979
     },
-    "training_time": 505.66468564061904,
+    "training_time": 543.9312063772088,
     "model_size": 66000000,
     "additional_info": {}
   }
