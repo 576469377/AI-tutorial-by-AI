@@ -19,7 +19,7 @@ tokenizers>=0.13.0
 datasets>=2.0.0
 accelerate>=0.20.0
 
-# Multimodal AI support (NEW)
+# Multimodal AI support
 Pillow>=8.0.0
 opencv-python>=4.5.0
 timm>=0.6.0
@@ -32,12 +32,13 @@ jupyterlab>=3.0.0
 scipy>=1.7.0
 nltk>=3.7.0
 
-# Multimodal evaluation (NEW)
-# torchmetrics>=0.9.0
+# Enhanced interpretability features (now included by default)
+shap>=0.41.0
+lime>=0.2.0
 
-# Optional: Enhanced interpretability features (uncomment to enable)
-# shap>=0.41.0
-# lime>=0.2.0
+# Advanced hyperparameter optimization (now included by default)
+scikit-optimize>=0.9.0
 
-# Optional: Advanced hyperparameter optimization (uncomment to enable)
-# scikit-optimize>=0.9.0
+# Additional helpful packages for AI education
+tqdm>=4.60.0
+ipywidgets>=7.6.0

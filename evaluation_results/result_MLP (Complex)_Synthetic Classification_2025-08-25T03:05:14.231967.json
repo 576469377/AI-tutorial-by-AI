@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-25T03:05:14.231967",
+  "model_name": "MLP (Complex)",
+  "model_type": "Traditional ML",
+  "dataset": "Synthetic Classification",
+  "metrics": {
+    "accuracy": 0.84,
+    "f1_score": 0.8404687013746044,
+    "precision": 0.8422775761973876,
+    "recall": 0.84
+  },
+  "training_time": 0.5503075122833252,
+  "model_size": 2590,
+  "additional_info": {}
+}

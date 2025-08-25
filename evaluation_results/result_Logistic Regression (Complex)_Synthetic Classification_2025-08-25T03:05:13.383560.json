@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-25T03:05:13.383560",
+  "model_name": "Logistic Regression (Complex)",
+  "model_type": "Traditional ML",
+  "dataset": "Synthetic Classification",
+  "metrics": {
+    "accuracy": 0.6833333333333333,
+    "f1_score": 0.6846246788413971,
+    "precision": 0.689631434169642,
+    "recall": 0.6833333333333333
+  },
+  "training_time": 0.010307788848876953,
+  "model_size": 60,
+  "additional_info": {}
+}
