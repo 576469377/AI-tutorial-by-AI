@@ -200,6 +200,29 @@ The tutorials are organized into progressive learning tracks. **[📚 See Comple
 - **🌟 Interactive AI Demos**: Real-time demonstrations of AI capabilities and model comparisons
 - **📈 Performance Tracking**: Advanced metrics tracking and visualization tools
 
+## 📄 Academic Paper Module
+
+We've published our framework as an academic paper! The `/paper` directory contains:
+
+- **LaTeX Source**: Complete academic paper documenting our educational methodology
+- **Automated Figures**: Python scripts that generate publication-quality charts and graphs
+- **Analysis Tools**: Metrics collection and project analysis for academic evaluation
+- **PDF Output**: Compiled academic paper ready for publication
+
+### Generate the Paper
+
+```bash
+cd paper/
+make pdf          # Generate figures, tables, and compile PDF
+```
+
+The paper covers:
+- Educational framework design and methodology
+- Technical implementation and architecture
+- Comprehensive evaluation results
+- Comparison with alternative educational resources
+- Impact on AI education and community adoption
+
 ## 🤝 Contributing
 
 This is an educational project. Feel free to:

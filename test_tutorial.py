@@ -174,6 +174,11 @@ def main():
     if run_command("jupyter --version", "Jupyter installation"):
         tests_passed += 1
     
+    # Test 13: Academic paper module
+    total_tests += 1
+    if run_command("python test_paper_module.py", "Academic paper module"):
+        tests_passed += 1
+    
     # Final report
     print(f"\n{'='*60}")
     print(f"🏁 TEST SUMMARY")
@@ -186,7 +191,8 @@ def main():
         print("\n📚 Next steps:")
         print("1. Start with tutorials/00_ai_fundamentals/README.md")
         print("2. Run 'jupyter lab' to explore the interactive notebooks")
-        print("3. Check docs/setup/cross_platform_setup.md for detailed setup")
+        print("3. Generate the academic paper with 'cd paper && make pdf'")
+        print("4. Check docs/setup/cross_platform_setup.md for detailed setup")
         return True
     else:
         print("⚠️  Some tests failed. Check the output above for details.")
