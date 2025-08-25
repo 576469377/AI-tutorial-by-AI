@@ -72,3 +72,22 @@ evaluation_results/*.json
 # Logs
 *.log
 logs/
+
+# LaTeX auxiliary files (but keep PDFs)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+paper/*.out
+paper/*.toc
+paper/*.lof
+paper/*.lot
+!paper/*.pdf
+
+# Keep generated figures and tables for the paper
+!paper/figures/*.png
+!paper/figures/*.pdf
+!paper/tables/*.tex
+!paper/tables/*.json

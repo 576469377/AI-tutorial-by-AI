@@ -1,0 +1,54 @@
+{
+  "timestamp": "/home/runner/work/AI-tutorial-by-AI/AI-tutorial-by-AI",
+  "project_name": "AI Tutorial by AI",
+  "analysis_date": "2024",
+  "file_structure": {
+    "total_files": 369,
+    "python_files": 24,
+    "notebook_files": 3,
+    "markdown_files": 18,
+    "tutorial_modules": 7,
+    "example_scripts": 10,
+    "test_files": 3,
+    "documentation_files": 13
+  },
+  "code_metrics": {
+    "lines_of_code": 9788,
+    "functions_count": 215,
+    "classes_count": 27,
+    "complexity_score": 0,
+    "documentation_ratio": 0.11554965263588067
+  },
+  "dependencies": {
+    "total_dependencies": 25,
+    "core_ml_libraries": 4,
+    "visualization_libraries": 3,
+    "deep_learning_libraries": 4,
+    "development_tools": 2
+  },
+  "educational_content": {
+    "learning_tracks": 7,
+    "total_examples": 10,
+    "interactive_notebooks": 3,
+    "documentation_pages": 4,
+    "covered_topics": [
+      "Fundamentals",
+      "Basics",
+      "Visualization",
+      "Machine Learning",
+      "Neural Networks",
+      "Pytorch",
+      "Language Models",
+      "Ethical Ai",
+      "Model Evaluation",
+      "Hyperparameter Tuning",
+      "Interpretability"
+    ]
+  },
+  "test_coverage": {
+    "test_coverage": "Unknown",
+    "tests_passing": "Unknown",
+    "total_tests": 3,
+    "test_framework": "pytest available"
+  }
+}

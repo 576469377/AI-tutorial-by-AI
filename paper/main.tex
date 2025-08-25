@@ -1,0 +1,98 @@
+\documentclass[11pt,twocolumn]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{subfig}
+\usepackage{caption}
+
+% Page geometry
+\geometry{
+    letterpaper,
+    margin=1in,
+    columnsep=0.2in
+}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=red
+}
+
+% Code listing setup
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    language=Python,
+    showstringspaces=false,
+    commentstyle=\color{green},
+    keywordstyle=\color{blue},
+    stringstyle=\color{red}
+}
+
+% Title and authors
+\title{AI Tutorial by AI: A Comprehensive Educational Framework for Artificial Intelligence and Machine Learning}
+
+\author{
+    AI Tutorial Development Team\\
+    \texttt{https://github.com/576469377/AI-tutorial-by-AI}\\
+    \texttt{Contact: github.com/576469377}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% Abstract
+\input{sections/abstract}
+
+% Keywords
+\begin{quote}
+\textbf{Keywords:} Artificial Intelligence Education, Machine Learning Tutorial, Educational Technology, Open Source Learning, Interactive Programming, Deep Learning, Large Language Models, Ethical AI
+\end{quote}
+
+% Main content
+\input{sections/introduction}
+\input{sections/methodology}
+\input{sections/implementation}
+\input{sections/evaluation}
+\input{sections/results}
+\input{sections/conclusion}
+
+% References
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+% Appendix (if needed)
+\appendix
+\section{Code Examples}
+\label{appendix:code}
+
+Selected code examples demonstrating key educational concepts are available in the project repository at \url{https://github.com/576469377/AI-tutorial-by-AI}.
+
+\section{Supplementary Materials}
+\label{appendix:materials}
+
+Additional materials including interactive notebooks, extended tutorials, and evaluation datasets are provided with the project distribution.
+
+\end{document}
