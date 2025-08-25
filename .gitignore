@@ -55,11 +55,19 @@ data/*.json
 !model_metrics_radar.html
 !cnn_models_comparison.html
 
+# Generated output files (large or temporary)
+demo_outputs/
+evaluation_results/*.json
+*.png
+*.html
+!README.html
+
 # Model files
 *.pkl
 *.h5
 *.model
 *.weights
+*.pth
 
 # Logs
 *.log

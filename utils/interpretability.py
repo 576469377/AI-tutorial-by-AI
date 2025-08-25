@@ -224,24 +224,77 @@ class ModelInterpreter:
             X = self.X_test
         
         try:
+            # Ensure input is proper numpy array
+            if hasattr(X, 'values'):
+                X = X.values
+            X = np.asarray(X)
+            
             # Initialize SHAP explainer if not already done
             if self.shap_explainer is None:
-                if hasattr(self.model, 'predict_proba'):
-                    # For classifiers
-                    self.shap_explainer = shap.Explainer(self.model.predict_proba, self.X_train)
+                # Use a smaller background dataset for efficiency
+                background_size = min(100, len(self.X_train))
+                if hasattr(self.X_train, 'values'):
+                    background = self.X_train.values[:background_size]
                 else:
-                    # For regressors or other models
-                    self.shap_explainer = shap.Explainer(self.model.predict, self.X_train)
+                    background = np.asarray(self.X_train)[:background_size]
+                
+                if hasattr(self.model, 'predict_proba'):
+                    # For classifiers - use TreeExplainer for tree models or Explainer for others
+                    if hasattr(self.model, 'estimators_') or 'RandomForest' in str(type(self.model)):
+                        try:
+                            self.shap_explainer = shap.TreeExplainer(self.model)
+                        except:
+                            self.shap_explainer = shap.Explainer(self.model.predict_proba, background)
+                    else:
+                        self.shap_explainer = shap.Explainer(self.model.predict_proba, background)
+                else:
+                    # For regressors
+                    if hasattr(self.model, 'estimators_') or 'RandomForest' in str(type(self.model)):
+                        try:
+                            self.shap_explainer = shap.TreeExplainer(self.model)
+                        except:
+                            self.shap_explainer = shap.Explainer(self.model.predict, background)
+                    else:
+                        self.shap_explainer = shap.Explainer(self.model.predict, background)
             
             # Calculate SHAP values
             print("🔍 Calculating SHAP values...")
-            shap_values = self.shap_explainer(X)
+            # Limit the number of samples for efficiency
+            sample_size = min(50, len(X))
+            if len(X) > sample_size:
+                sample_indices = np.random.choice(len(X), sample_size, replace=False)
+                X_sample = X[sample_indices]
+            else:
+                X_sample = X
             
-            self._shap_values_cache = shap_values
-            return shap_values.values if hasattr(shap_values, 'values') else shap_values
+            shap_values = self.shap_explainer(X_sample)
+            
+            # Handle different SHAP output formats
+            if hasattr(shap_values, 'values'):
+                values = shap_values.values
+            else:
+                values = shap_values
+            
+            # For multi-output models, ensure consistent format
+            if isinstance(values, list):
+                # Multi-class case - return as is
+                self._shap_values_cache = values
+                return values
+            elif len(values.shape) == 3:
+                # Multi-class case with shape (n_samples, n_features, n_classes)
+                # Convert to list format for consistency
+                values_list = [values[:, :, i] for i in range(values.shape[2])]
+                self._shap_values_cache = values_list
+                return values_list
+            else:
+                # Binary classification or regression
+                self._shap_values_cache = values
+                return values
             
         except Exception as e:
             print(f"⚠️  Error calculating SHAP values: {e}")
+            print(f"   Model type: {type(self.model)}")
+            print(f"   Input shape: {X.shape if hasattr(X, 'shape') else 'Unknown'}")
             return None
     
     def create_shap_dashboard(self, X_sample=None, max_samples=100, save_html=True) -> go.Figure:

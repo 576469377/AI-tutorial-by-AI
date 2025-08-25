@@ -134,7 +134,12 @@ def main():
     if run_command("python examples/09_enhanced_features_demo.py", "Enhanced features demo"):
         tests_passed += 1
     
-    # Test 9: Check generated files
+    # Test 9: Test ethical AI practices demo
+    total_tests += 1
+    if run_command("python examples/10_ethical_ai_practices.py", "Ethical AI practices demo"):
+        tests_passed += 1
+    
+    # Test 10: Check generated files
     total_tests += 1
     generated_files = [
         "sample_data/classification_sample.csv",
@@ -149,20 +154,22 @@ def main():
         "optimization_comparison.png",
         "comprehensive_model_dashboard.html",
         "model_metrics_radar.html",
-        "enhanced_model_dashboard.html"
+        "enhanced_model_dashboard.html",
+        "ethical_ai_bias_analysis.png",
+        "explainable_ai_feature_importance.png"
     ]
     # Check some files exist (optional files may not be generated in CI)
     essential_files = [f for f in generated_files if not f.endswith('.html')]
     if check_files_exist(essential_files, "Generated output files"):
         tests_passed += 1
     
-    # Test 9: Check enhanced utility modules
+    # Test 11: Check enhanced utility modules
     total_tests += 1
     test_command = "python -c \"from utils.model_evaluation import ModelEvaluationDashboard; from utils.training_tracker import TrainingTracker; from utils.interpretability import ModelInterpreter; from utils.hyperparameter_tuning import HyperparameterTuner; print('All enhanced utils modules working')\""
     if run_command(test_command, "Enhanced utility modules import"):
         tests_passed += 1
     
-    # Test 10: Jupyter notebook validation
+    # Test 12: Jupyter notebook validation
     total_tests += 1
     if run_command("jupyter --version", "Jupyter installation"):
         tests_passed += 1
