@@ -1,0 +1,25 @@
+networks:
+  ai_tutorial_network:
+    driver: bridge
+services:
+  ai-tutorial-api:
+    build: .
+    environment:
+    - MODEL_SERVER_PORT=5000
+    - PYTHONPATH=/app
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 40s
+      test: curl -f http://localhost:5000/health || exit 1
+      timeout: 10s
+    ports:
+    - 5000:5000
+    restart: unless-stopped
+    volumes:
+    - ./models:/app/models
+    - ./logs:/app/logs
+version: '3.8'
+volumes:
+  logs: {}
+  model_data: {}

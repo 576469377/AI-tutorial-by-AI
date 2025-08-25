@@ -1,0 +1,29 @@
+[Unit]
+Description=AI Tutorial Model API Server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/ai-tutorial
+Environment=PATH=/opt/ai-tutorial/venv/bin
+Environment=PYTHONPATH=/opt/ai-tutorial
+ExecStart=/usr/bin/python3 -m deployment.model_server
+Restart=always
+RestartSec=10
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/ai-tutorial
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ai-tutorial-api
+
+[Install]
+WantedBy=multi-user.target

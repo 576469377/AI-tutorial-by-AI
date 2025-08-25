@@ -139,7 +139,12 @@ def main():
     if run_command("python examples/10_ethical_ai_practices.py", "Ethical AI practices demo"):
         tests_passed += 1
     
-    # Test 10: Check generated files
+    # Test 10: Test model deployment demo
+    total_tests += 1
+    if run_command("python examples/11_model_deployment_demo.py", "Model deployment demo"):
+        tests_passed += 1
+    
+    # Test 11: Check generated files
     total_tests += 1
     generated_files = [
         "sample_data/classification_sample.csv",
@@ -163,18 +168,30 @@ def main():
     if check_files_exist(essential_files, "Generated output files"):
         tests_passed += 1
     
-    # Test 11: Check enhanced utility modules
+    # Test 12: Check enhanced utility modules
     total_tests += 1
     test_command = "python -c \"from utils.model_evaluation import ModelEvaluationDashboard; from utils.training_tracker import TrainingTracker; from utils.interpretability import ModelInterpreter; from utils.hyperparameter_tuning import HyperparameterTuner; print('All enhanced utils modules working')\""
     if run_command(test_command, "Enhanced utility modules import"):
         tests_passed += 1
     
-    # Test 12: Jupyter notebook validation
+    # Test 13: Check deployment modules
+    total_tests += 1
+    test_command = "python -c \"from deployment.model_server import ModelServer; from deployment.model_registry import ModelRegistry; from deployment.deployment_utils import DeploymentHelper; print('All deployment modules working')\""
+    if run_command(test_command, "Deployment modules import"):
+        tests_passed += 1
+    
+    # Test 14: Check web interface modules
+    total_tests += 1
+    test_command = "python -c \"from web_interface.dashboard_app import DashboardServer; print('Web interface modules working')\""
+    if run_command(test_command, "Web interface modules import"):
+        tests_passed += 1
+    
+    # Test 15: Jupyter notebook validation
     total_tests += 1
     if run_command("jupyter --version", "Jupyter installation"):
         tests_passed += 1
     
-    # Test 13: Academic paper module
+    # Test 16: Academic paper module
     total_tests += 1
     if run_command("python test_paper_module.py", "Academic paper module"):
         tests_passed += 1

@@ -1,0 +1,19 @@
+{
+  "version": "v1.0",
+  "description": "Demo PyTorch neural network for classification",
+  "tags": [
+    "pytorch",
+    "demo",
+    "classification"
+  ],
+  "file_hash": "5b2d356d395290454c4ec1d38fc908ea21cca9b64fe3bb8f2ddc306ce54ead14",
+  "file_size": 3531,
+  "original_path": "demo_models/demo_pytorch_model.pth",
+  "registry_path": "demo_model_registry/models/demo_pytorch_v1.0.pth",
+  "registered_at": "2025-08-25T13:12:00.977194",
+  "model_type": "pytorch",
+  "custom_metadata": {
+    "accuracy": 0.87,
+    "framework": "pytorch"
+  }
+}

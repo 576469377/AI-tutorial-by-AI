@@ -1,0 +1,56 @@
+{
+  "models": {
+    "demo_pytorch": {
+      "created_at": "2025-08-25T13:12:00.977008",
+      "versions": {
+        "v1.0": {
+          "version": "v1.0",
+          "description": "Demo PyTorch neural network for classification",
+          "tags": [
+            "pytorch",
+            "demo",
+            "classification"
+          ],
+          "file_hash": "5b2d356d395290454c4ec1d38fc908ea21cca9b64fe3bb8f2ddc306ce54ead14",
+          "file_size": 3531,
+          "original_path": "demo_models/demo_pytorch_model.pth",
+          "registry_path": "demo_model_registry/models/demo_pytorch_v1.0.pth",
+          "registered_at": "2025-08-25T13:12:00.977194",
+          "model_type": "pytorch",
+          "custom_metadata": {
+            "accuracy": 0.87,
+            "framework": "pytorch"
+          }
+        }
+      },
+      "latest_version": "v1.0"
+    },
+    "demo_sklearn": {
+      "created_at": "2025-08-25T13:12:00.978886",
+      "versions": {
+        "v1.0": {
+          "version": "v1.0",
+          "description": "Demo Random Forest classifier",
+          "tags": [
+            "sklearn",
+            "demo",
+            "random_forest"
+          ],
+          "file_hash": "8b5045e4ec66d6c82abe4eb1e11a2918b79e1eb6a98813bcd14fd39f8b342f39",
+          "file_size": 1212699,
+          "original_path": "demo_models/demo_sklearn_model.pkl",
+          "registry_path": "demo_model_registry/models/demo_sklearn_v1.0.pkl",
+          "registered_at": "2025-08-25T13:12:00.979940",
+          "model_type": "sklearn",
+          "custom_metadata": {
+            "accuracy": 0.92,
+            "n_estimators": 100
+          }
+        }
+      },
+      "latest_version": "v1.0"
+    }
+  },
+  "created_at": "2025-08-25T13:12:00.976786",
+  "last_updated": "2025-08-25T13:12:00.980058"
+}

@@ -42,3 +42,8 @@ scikit-optimize>=0.9.0
 # Additional helpful packages for AI education
 tqdm>=4.60.0
 ipywidgets>=7.6.0
+
+# Model deployment and serving
+flask>=2.0.0
+pyyaml>=6.0.0
+requests>=2.25.0

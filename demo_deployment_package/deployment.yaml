@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ai-tutorial-api
+  name: ai-tutorial-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-tutorial-api
+  template:
+    metadata:
+      labels:
+        app: ai-tutorial-api
+    spec:
+      containers:
+      - env:
+        - name: MODEL_SERVER_PORT
+          value: '5000'
+        - name: PYTHONPATH
+          value: /app
+        image: ai-tutorial:latest
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        name: ai-tutorial-api
+        ports:
+        - containerPort: 5000
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: 500m
+            memory: 1Gi
+          requests:
+            cpu: 250m
+            memory: 512Mi
