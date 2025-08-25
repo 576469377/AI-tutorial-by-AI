@@ -107,6 +107,18 @@ python examples/08_advanced_ai_demos.py
 
 # 🎯 NEW: Experience enhanced AI development tools
 python examples/09_enhanced_features_demo.py
+
+# 🤖 NEW: Learn ethical AI practices
+python examples/10_ethical_ai_practices.py
+
+# 🚀 NEW: Model deployment and production
+python examples/11_model_deployment_demo.py
+
+# 🌐 NEW: Interactive web dashboard
+python examples/12_web_interface_demo.py
+
+# 🎉 NEW: Complete integration workflow
+python examples/13_complete_integration_demo.py
 ```
 
 ## 📚 Tutorial Structure
@@ -188,6 +200,18 @@ The tutorials are organized into progressive learning tracks. **[📚 See Comple
 - 🔍 **Step-by-step Explanations**: Detailed explanations of concepts and code
 - 🗂️ **Organized Structure**: Logical progression from basics to advanced topics
 
+### 🚀 **NEW: Production Deployment Pipeline**
+- **📦 Model Serving API**: REST API for serving trained models with health checks and monitoring
+- **🗂️ Model Registry**: Version management system for tracking model metadata and deployments
+- **🐳 Container Support**: Complete Docker and Kubernetes deployment configurations
+- **🔧 Deployment Automation**: Automated scripts for production deployment across platforms
+
+### 🌐 **NEW: Interactive Web Dashboard**
+- **📱 Browser-based Interface**: Modern web UI for accessing tutorials and running examples
+- **⚡ Real-time Execution**: Run AI examples directly in your browser with live results
+- **📊 Progress Tracking**: Achievement system and learning progress visualization
+- **🎮 Interactive Tools**: Web-based AI development tools and visualizations
+
 ### 🚀 **NEW: Enhanced AI Development Tools**
 - **📈 Real-time Training Tracker**: Live visualization of training progress with loss curves, metrics, and performance analytics
 - **🔍 Model Interpretability Suite**: SHAP values, feature importance, decision boundaries, and model explanation dashboards
@@ -199,6 +223,9 @@ The tutorials are organized into progressive learning tracks. **[📚 See Comple
 - **🏁 Model Evaluation Dashboard**: Comprehensive tools for comparing and analyzing model performance
 - **🌟 Interactive AI Demos**: Real-time demonstrations of AI capabilities and model comparisons
 - **📈 Performance Tracking**: Advanced metrics tracking and visualization tools
+- **🚀 Model Deployment**: Production-ready API serving with Docker and Kubernetes support
+- **🌐 Web Interface**: Browser-based interactive learning platform with progress tracking
+- **🗂️ Model Registry**: Version management and metadata tracking for ML models
 
 ## 📄 Academic Paper Module
 

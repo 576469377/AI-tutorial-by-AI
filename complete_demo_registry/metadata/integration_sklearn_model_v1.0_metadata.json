@@ -1,0 +1,19 @@
+{
+  "version": "v1.0",
+  "description": "Production integration_sklearn_model model",
+  "tags": [
+    "production",
+    "demo",
+    "ml"
+  ],
+  "file_hash": "8b5045e4ec66d6c82abe4eb1e11a2918b79e1eb6a98813bcd14fd39f8b342f39",
+  "file_size": 1212699,
+  "original_path": "integration_demo_models/integration_sklearn_model.pkl",
+  "registry_path": "complete_demo_registry/models/integration_sklearn_model_v1.0.pkl",
+  "registered_at": "2025-08-25T13:23:10.528435",
+  "model_type": "sklearn",
+  "custom_metadata": {
+    "accuracy": 0.92,
+    "framework": "sklearn"
+  }
+}
