@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-25T03:08:37.582374",
+  "model_name": "Neural Network (synthetic)",
+  "model_type": "Neural Network",
+  "dataset": "Synthetic",
+  "metrics": {
+    "accuracy": 0.9016666666666666,
+    "train_accuracy": 0.965,
+    "overfitting": 0.06333333333333335
+  },
+  "training_time": 1.0242643356323242,
+  "model_size": 650,
+  "additional_info": {}
+}

@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-25T03:05:14.232426",
+  "model_name": "ResNet-50",
+  "model_type": "CNN",
+  "dataset": "CIFAR-10",
+  "metrics": {
+    "accuracy": 0.9435241595592764,
+    "f1_score": 0.9330065665329615,
+    "precision": 0.9484816007654442,
+    "recall": 0.9210796113049057
+  },
+  "training_time": 570.0342644414446,
+  "model_size": 25000000,
+  "additional_info": {}
+}

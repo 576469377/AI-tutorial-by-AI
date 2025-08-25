@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-25T03:05:14.232676",
+  "model_name": "Simple RNN",
+  "model_type": "RNN",
+  "dataset": "Text Sentiment",
+  "metrics": {
+    "accuracy": 0.7163066467928768,
+    "f1_score": 0.7191895138014577,
+    "precision": 0.7304083833119298,
+    "recall": 0.6881386816240453
+  },
+  "training_time": 145.6913738980673,
+  "model_size": 100000,
+  "additional_info": {}
+}

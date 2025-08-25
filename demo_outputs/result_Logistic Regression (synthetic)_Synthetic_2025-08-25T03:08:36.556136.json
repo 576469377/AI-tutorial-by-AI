@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-08-25T03:08:36.556136",
+  "model_name": "Logistic Regression (synthetic)",
+  "model_type": "Logistic Regression",
+  "dataset": "Synthetic",
+  "metrics": {
+    "accuracy": 0.7016666666666667,
+    "train_accuracy": 0.7271428571428571,
+    "overfitting": 0.02547619047619043
+  },
+  "training_time": 0.003034830093383789,
+  "model_size": 1,
+  "additional_info": {}
+}

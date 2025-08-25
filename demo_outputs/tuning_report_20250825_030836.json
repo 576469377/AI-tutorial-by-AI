@@ -1,0 +1,84 @@
+{
+  "model_info": {
+    "model_class": "RandomForestClassifier",
+    "parameter_space": {
+      "n_estimators": [
+        50,
+        100,
+        150
+      ],
+      "max_depth": [
+        3,
+        5,
+        7
+      ],
+      "min_samples_split": [
+        2,
+        5,
+        10
+      ],
+      "min_samples_leaf": [
+        1,
+        2,
+        4
+      ]
+    },
+    "scoring_metric": "accuracy",
+    "cv_folds": 5
+  },
+  "methods_used": [
+    "grid_search",
+    "random_search"
+  ],
+  "best_params_by_method": {
+    "grid_search": {
+      "max_depth": 7,
+      "min_samples_leaf": 2,
+      "min_samples_split": 2,
+      "n_estimators": 150
+    },
+    "random_search": {
+      "n_estimators": 150,
+      "min_samples_split": 2,
+      "min_samples_leaf": 2,
+      "max_depth": 7
+    }
+  },
+  "best_scores_by_method": {
+    "grid_search": 0.8424999999999999,
+    "random_search": 0.8424999999999999
+  },
+  "search_times": {
+    "grid_search": 37.975462198257446,
+    "random_search": 22.73967671394348
+  },
+  "timestamp": "2025-08-25T03:08:36.154224",
+  "detailed_results": {
+    "grid_search": {
+      "best_score": 0.8424999999999999,
+      "best_params": {
+        "max_depth": 7,
+        "min_samples_leaf": 2,
+        "min_samples_split": 2,
+        "n_estimators": 150
+      },
+      "search_time": 37.975462198257446,
+      "mean_score": 0.8087345679012347,
+      "std_score": 0.029511977062261628,
+      "total_evaluations": 81
+    },
+    "random_search": {
+      "best_score": 0.8424999999999999,
+      "best_params": {
+        "n_estimators": 150,
+        "min_samples_split": 2,
+        "min_samples_leaf": 2,
+        "max_depth": 7
+      },
+      "search_time": 22.73967671394348,
+      "mean_score": 0.8088124999999998,
+      "std_score": 0.029878380711286408,
+      "total_evaluations": 50
+    }
+  }
+}
