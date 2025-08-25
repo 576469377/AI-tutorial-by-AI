@@ -1,0 +1,19 @@
+{
+  "version": "v1.0",
+  "description": "Demo Random Forest classifier",
+  "tags": [
+    "sklearn",
+    "demo",
+    "random_forest"
+  ],
+  "file_hash": "8b5045e4ec66d6c82abe4eb1e11a2918b79e1eb6a98813bcd14fd39f8b342f39",
+  "file_size": 1212699,
+  "original_path": "demo_models/demo_sklearn_model.pkl",
+  "registry_path": "demo_model_registry/models/demo_sklearn_v1.0.pkl",
+  "registered_at": "2025-08-25T13:12:00.979940",
+  "model_type": "sklearn",
+  "custom_metadata": {
+    "accuracy": 0.92,
+    "n_estimators": 100
+  }
+}

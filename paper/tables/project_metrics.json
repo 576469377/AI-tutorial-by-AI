@@ -3,24 +3,24 @@
   "project_name": "AI Tutorial by AI",
   "analysis_date": "2024",
   "file_structure": {
-    "total_files": 295,
-    "python_files": 24,
+    "total_files": 526,
+    "python_files": 33,
     "notebook_files": 3,
-    "markdown_files": 18,
+    "markdown_files": 20,
     "tutorial_modules": 7,
-    "example_scripts": 10,
+    "example_scripts": 13,
     "test_files": 3,
-    "documentation_files": 13
+    "documentation_files": 15
   },
   "code_metrics": {
-    "lines_of_code": 9788,
-    "functions_count": 215,
-    "classes_count": 27,
+    "lines_of_code": 12864,
+    "functions_count": 284,
+    "classes_count": 32,
     "complexity_score": 0,
-    "documentation_ratio": 0.11554965263588067
+    "documentation_ratio": 0.11520522388059702
   },
   "dependencies": {
-    "total_dependencies": 25,
+    "total_dependencies": 28,
     "core_ml_libraries": 4,
     "visualization_libraries": 3,
     "deep_learning_libraries": 4,
@@ -28,7 +28,7 @@
   },
   "educational_content": {
     "learning_tracks": 7,
-    "total_examples": 10,
+    "total_examples": 13,
     "interactive_notebooks": 3,
     "documentation_pages": 4,
     "covered_topics": [

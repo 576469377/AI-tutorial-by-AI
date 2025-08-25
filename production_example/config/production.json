@@ -1,0 +1,31 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8000,
+    "debug": false,
+    "threaded": true
+  },
+  "models": {
+    "auto_load": true,
+    "models_directory": "./models",
+    "supported_formats": [
+      ".pkl",
+      ".pth",
+      ".pt"
+    ]
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "./logs/api.log",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  "security": {
+    "rate_limiting": true,
+    "max_requests_per_minute": 60,
+    "api_key_required": false
+  },
+  "monitoring": {
+    "enable_metrics": true,
+    "health_check_interval": 30
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": "v1.0",
+  "description": "Production integration_pytorch_model model",
+  "tags": [
+    "production",
+    "demo",
+    "pytorch"
+  ],
+  "file_hash": "22971b7a9245bc5c262da7653f557f1c37141b5f7b3228c71f9254cf23c33214",
+  "file_size": 3729,
+  "original_path": "integration_demo_models/integration_pytorch_model.pth",
+  "registry_path": "complete_demo_registry/models/integration_pytorch_model_v1.0.pth",
+  "registered_at": "2025-08-25T13:23:10.529211",
+  "model_type": "pytorch",
+  "custom_metadata": {
+    "accuracy": 0.89,
+    "framework": "pytorch"
+  }
+}
