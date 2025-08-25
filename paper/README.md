@@ -87,11 +87,12 @@ The paper includes automatically generated:
 ## Citation
 
 ```bibtex
-@article{ai_tutorial_by_ai_2024,
+@misc{ai_tutorial_by_ai_2024,
     title={AI Tutorial by AI: A Comprehensive Educational Framework for Artificial Intelligence and Machine Learning},
-    author={AI Tutorial Development Team},
-    journal={Educational Technology Research},
+    author={Anonymous Author},
     year={2024},
-    note={Available at: https://github.com/576469377/AI-tutorial-by-AI}
+    howpublished={Open-source educational project},
+    url={https://github.com/576469377/AI-tutorial-by-AI},
+    note={Comprehensive AI/ML tutorial with practical examples and hands-on exercises}
 }
 ```
